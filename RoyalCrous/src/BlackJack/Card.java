@@ -1,10 +1,10 @@
 package BlackJack;
 
-public class Carte {
+public class Card {
 	private Rank rank;
 	private Color color;
 	
-	Carte(Rank rank, Color color) {
+	Card(Rank rank, Color color) {
 		this.rank = rank;
 		this.color = color;
 	}
