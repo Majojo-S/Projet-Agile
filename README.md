@@ -21,7 +21,7 @@ Lister ici tout ce qui était un peut moins bien que parfait.
 
 ### PDCA
 * De tous ces éléments quel est celui que vous voulez améliorer ?
-    Devenir plus creatif
+    Devenir plus creatif.
 * Comment pouvez-vous mesurer qu'il s'améliore ?
     la rapidité a trouver de nouvelle idées
 * Quelles sont toutes les options possible pour l'améliorer ?
