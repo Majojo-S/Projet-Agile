@@ -23,16 +23,8 @@ public class RoyalCrous {
         int echelon = 1; // TODO : changer en aleatoire
 
         Player player = new Player(bourse, name, echelon);
-
-<<<<<<< HEAD
-        init(player);
-
         System.out.println(player.bet(scanner));
-
-        //System.out.println("Vous avez " + player.getBourse() + "jetons");
-=======
         System.out.println("Vous avez " + player.getBourse() + "jetons");
->>>>>>> 99cb235aaa6286d6ca9efa37e035ce49b1cb391e
         
         System.out.println("Combien de paquet ? :");
         int nb = scanner.nextInt();
