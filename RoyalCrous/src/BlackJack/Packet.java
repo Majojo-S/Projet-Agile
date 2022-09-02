@@ -19,10 +19,6 @@ import java.util.Random;
 				}
 			}
 		}
-		
-		public String toStringJoueur() {
-			return("Vous avez tiré un " + packet.toString());
-		}
 
 
 		public List<Card> getToto() {
