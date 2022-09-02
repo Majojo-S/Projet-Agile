@@ -10,23 +10,26 @@ import java.util.Collections;
 import java.util.List;
 
 public class Players {
+	
 	private List<Player> players;//
+	
 	File f=new File("src/Menu/Players.txt");
 
 	public Players() {
 		players=new ArrayList<Player>();
 	}
 
-	public boolean addPlayer(String name) {
+	
+	public boolean addPlayer(Player player) {
 		boolean existant=false;
-		for(Player prof:players) {
-			if(name.equals(prof.getName())){
+		for(Player play:players) {
+			if(player.equals(play.getName())){
 				existant=true;
 				System.out.println("Ce nom de Joueur existe déjà, entrez en un nouveau: ");
 			}
 		}
 		if(!existant) {
-			players.add(new Player(1000,name,1));
+			players.add(new Player(player.getBourse(),player.getName(),player.getEchelon()));
 			try (FileWriter fw=new FileWriter(this.f)){
 				StringBuilder sb=new StringBuilder();
 				for(Player prof:players) {
