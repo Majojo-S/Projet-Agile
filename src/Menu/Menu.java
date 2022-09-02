@@ -4,8 +4,6 @@ package Menu;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.Scanner;
-
-import BlackJack.Game;
 import BlackJack.Player;
 import BlackJack.Players;
 import BlackJack.RoyalCrous;
@@ -227,7 +225,6 @@ public class Menu {
 		switch (choix) {
 		case "1":
 			clear();
-			Game a= new Game();
 			String[] args = null;
 			RoyalCrous.main(args);
 			players.updateTxt();
