@@ -145,11 +145,7 @@ public class Players {
 		}
 	}
 	
-	public void bestProfil() {
-		
-		
-		
-	}
+	
 	
 	
 

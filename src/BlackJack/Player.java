@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 import BlackJack.Card;
 
-public class Player {
+public class Player implements Comparable<Player>{
 	/**
 	 * 
 	 */
@@ -83,6 +83,16 @@ public class Player {
 		System.out.println("Entrez votre mise : ");
 		int coins = sc.nextInt();
 		return coins;
+	}
+
+	@Override
+	public int compareTo(Player arg0) {
+		return arg0.bourse - this.bourse;
+	}
+
+	@Override
+	public String toString() {
+		return name + ", bourse = " + bourse ;
 	}
 
 	

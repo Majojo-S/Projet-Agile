@@ -85,7 +85,7 @@ public class Menu {
 		String input;
 		while(!exit) {
 			clear();
-			
+
 			String [] best=new String [5];
 			for (int i = 0; i < best.length; i++) {
 				best[i]="n°"+Integer.sum(i, 1)+" no one";
@@ -95,8 +95,8 @@ public class Menu {
 				best[i]="n°"+Integer.sum(i, 1)+" "+players.getPlayers().get(i).toString();
 				if(i==4)break;
 			}
-			
-			
+
+
 			System.out.print("╔━╤━━━━━━━━━━━━╗\n"
 					+"┃1┃ BlackJack  ┃\n"
 					+"╠═╬════════════╣\n"
@@ -123,7 +123,9 @@ public class Menu {
 					+"╠━╫━━━━━━━━━━━━╣\n"
 					+"┃2┃ LoadPlayers┃\n"
 					+"╠═╬════════════╣\n"
-					+"┃3┃ Exit       ┃\n"
+					+"┃3┃ Ranking    ┃\n"
+					+"╠═╧════════════╣\n"
+					+"┃4┃ Exit       ┃\n"
 					+"╚═╧════════════╝\n"
 					+"               \n"
 					+"Faites un choix : ");
@@ -175,8 +177,14 @@ public class Menu {
 
 				exit = true;
 				break;
+			
 			case "3":
-				
+
+				rankingMenu();
+				break;
+			
+			case "4":
+
 				exit = true;
 				break;
 			default:
@@ -220,12 +228,12 @@ public class Menu {
 	private static void play(String choix ) {
 		switch (choix) {
 		case "1":
-			 clear();
+			clear();
 			Game a= new Game();
 			String[] args = null;
 			RoyalCrous.main(args);
 			players.updateTxt();
-			
+
 			LoadingMenu();
 			break;
 		default:
@@ -234,7 +242,21 @@ public class Menu {
 
 
 	}
-	
+
+	private static void rankingMenu() {
+		String [] best=new String [5];
+		for (int i = 0; i < best.length; i++) {
+			best[i]="n°"+Integer.sum(i, 1)+" no one";
+		}
+		Collections.sort(players.getPlayers());
+		for (int i = 0; i < players.getPlayers().size(); i++) {
+			best[i]="n°"+Integer.sum(i, 1)+" "+players.getPlayers().get(i).toString();
+			if(i==4)break;
+		}
+		System.out.println(best[0]
+				+"\n"+best[1]
+				+"\n"+best[2]);
+	}
 
 
 }
