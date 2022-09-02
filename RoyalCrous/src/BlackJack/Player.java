@@ -28,7 +28,7 @@ public class Player {
 	/**
 	 * @return
 	 */
-	public int getScore() {
+	public int getBourse() {
 		return bourse;
 	}
 
