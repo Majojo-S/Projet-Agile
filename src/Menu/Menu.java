@@ -19,7 +19,7 @@ import BlackJack.RoyalCrous;
 public class Menu {
 	public String abdel;
 	private static Players players= new Players();
-	private static Player p1;
+	private static Player currentPlayer;
 	// SALUT 
 
 
@@ -75,7 +75,7 @@ public class Menu {
 		}
 	}
 
-	private static void LoadingMenu() {
+	private static void LoadingMenu() throws InterruptedException {
 		System.out.println("Loading game...");
 		try {
 			Thread.sleep(2000);
@@ -135,11 +135,7 @@ public class Menu {
 			switch (input) {
 			case "1":
 
-				System.err.println(" Bienvenue dans Royal Crous \n"
-						+ "Quelle est ton prénom ?  ");
-
-				String nom= userInput.nextLine();
-
+				String nom = getName(userInput);
 
 				while(!players.addPlayer(nom)) {
 					nom= userInput.nextLine();
@@ -147,7 +143,7 @@ public class Menu {
 				}
 				System.out.println(nom);
 
-				p1=new Player(1000,nom,1);
+				currentPlayer=new Player(1000,nom,1);
 
 				play();
 				exit = false;
@@ -161,7 +157,7 @@ public class Menu {
 				try {
 					if(players.existingName(nomLoad)) {
 						System.out.println("cool de te revoir"+nomLoad);
-						p1=players.loadPlayer(nomLoad);
+						currentPlayer=players.loadPlayer(nomLoad);
 					}
 					else { System.out.println("mais je ne t'ai jamais vu ici "+nomLoad+"  !");
 					try {
@@ -220,12 +216,12 @@ public class Menu {
 
 
 
-	private static void play( ) {
+	private static void play( ) throws InterruptedException {
 		LoadingMenu();
 
 
 	}
-	private static void play(String choix ) {
+	private static void play(String choix ) throws InterruptedException {
 		switch (choix) {
 		case "1":
 			clear();
@@ -258,5 +254,16 @@ public class Menu {
 				+"\n"+best[2]);
 	}
 
-
+	private static String getName(Scanner userInput) {
+		System.err.println(" Bienvenue dans Royal Crous \n"+ "Quelle est ton prénom ?  ");
+		String nom= userInput.nextLine();
+		currentPlayer = new Player(nom);
+		return nom;
+	}
+	
+	public Player getCurrentPlayer() {
+		return this.currentPlayer;
+	}
+	
+	
 }
