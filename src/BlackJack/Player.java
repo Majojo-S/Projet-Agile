@@ -95,5 +95,13 @@ public class Player implements Comparable<Player>{
 		return name + ", bourse = " + bourse ;
 	}
 
+	public void setBourse(int bourse) {
+		this.bourse = bourse;
+	}
+
+	public void setEchelon(int echelon) {
+		this.echelon = echelon;
+	}
+
 	
 }

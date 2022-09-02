@@ -2,12 +2,11 @@ package Menu;
 
 
 import java.io.IOException;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.Iterator;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
 import java.util.Scanner;
-
-import BlackJack.Game;
 import BlackJack.Player;
 import BlackJack.Players;
 import BlackJack.RoyalCrous;
@@ -17,10 +16,14 @@ import BlackJack.RoyalCrous;
 
 
 public class Menu {
-	public String abdel;
 	private static Players players= new Players();
+<<<<<<< HEAD
 	private static Player currentPlayer;
 	// SALUT 
+=======
+	private static Player p1;
+	
+>>>>>>> 3d5519ffb49e8bac1139fcc7e7e41b4adf34c22c
 
 
 
@@ -90,7 +93,7 @@ public class Menu {
 			for (int i = 0; i < best.length; i++) {
 				best[i]="n°"+Integer.sum(i, 1)+" no one";
 			}
-			//Collections.sort(players.getPlayers());
+			Collections.sort(players.getPlayers());
 			for (int i = 0; i < players.getPlayers().size(); i++) {
 				best[i]="n°"+Integer.sum(i, 1)+" "+players.getPlayers().get(i).toString();
 				if(i==4)break;
@@ -100,7 +103,7 @@ public class Menu {
 			System.out.print("╔━╤━━━━━━━━━━━━╗\n"
 					+"┃1┃ BlackJack  ┃\n"
 					+"╠═╬════════════╣\n"
-					+"┃3┃ Exit       ┃\n"
+					+"┃2┃ Back       ┃\n"
 					+"╚═╧════════════╝\n"
 					+"               \n"
 					+"Faites un choix : ");
@@ -125,7 +128,7 @@ public class Menu {
 					+"╠═╬════════════╣\n"
 					+"┃3┃ Ranking    ┃\n"
 					+"╠═╧════════════╣\n"
-					+"┃4┃ Exit       ┃\n"
+					+"┃4┃ Back       ┃\n"
 					+"╚═╧════════════╝\n"
 					+"               \n"
 					+"Faites un choix : ");
@@ -143,21 +146,32 @@ public class Menu {
 				}
 				System.out.println(nom);
 
+<<<<<<< HEAD
 				currentPlayer=new Player(1000,nom,1);
+=======
+				p1=new Player(1000,nom,1);
+				
+				init(p1);
+>>>>>>> 3d5519ffb49e8bac1139fcc7e7e41b4adf34c22c
 
 				play();
 				exit = false;
 				break;
 			case "2":
 				System.err.println(" Mais qui revoila ici dans le meilleur jeu ,\n"
-						+ " heu rappel moi ton nom de joueur : ");
+						+ "euh rappel moi ton nom de joueur : ");
 				String nomLoad= userInput.nextLine();
 
 
 				try {
 					if(players.existingName(nomLoad)) {
+<<<<<<< HEAD
 						System.out.println("cool de te revoir"+nomLoad);
 						currentPlayer=players.loadPlayer(nomLoad);
+=======
+						System.out.println("cool de te revoir "+nomLoad);
+						p1=players.loadPlayer(nomLoad);
+>>>>>>> 3d5519ffb49e8bac1139fcc7e7e41b4adf34c22c
 					}
 					else { System.out.println("mais je ne t'ai jamais vu ici "+nomLoad+"  !");
 					try {
@@ -193,10 +207,11 @@ public class Menu {
 
 
 
+	/*@SuppressWarnings("unused")
 	private static String askName(String string) {
 		System.out.print(string+" enter your name : ");
 		return userInput.nextLine();
-	}
+	}*/
 
 	private static void mainMenu() {
 		System.out.print("    ╔━╤━━━━━━━━━━━╗\n"
@@ -225,8 +240,7 @@ public class Menu {
 		switch (choix) {
 		case "1":
 			clear();
-			Game a= new Game();
-			String[] args = null;
+			Player[] args = {p1};
 			RoyalCrous.main(args);
 			players.updateTxt();
 
@@ -238,6 +252,8 @@ public class Menu {
 
 
 	}
+	
+	
 
 	private static void rankingMenu() {
 		String [] best=new String [5];
@@ -251,8 +267,16 @@ public class Menu {
 		}
 		System.out.println(best[0]
 				+"\n"+best[1]
-				+"\n"+best[2]);
+				+"\n"+best[2]
+				+"\n"+best[3]
+				+"\n"+best[4]);
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
+<<<<<<< HEAD
 
 	private static String getName(Scanner userInput) {
 		System.err.println(" Bienvenue dans Royal Crous \n"+ "Quelle est ton prénom ?  ");
@@ -266,4 +290,26 @@ public class Menu {
 	}
 	
 	
+=======
+	
+	private static void init(Player player){
+        Map<Integer,Integer> solde = new HashMap<>();
+        solde.put(1, 100);
+        solde.put(2, 200);
+        solde.put(3, 300);
+        solde.put(4, 400);
+        solde.put(5, 500);
+        solde.put(6, 600);
+
+        Random random = new Random();
+        int echelon = random.nextInt(6) + 1;
+        int bourse = solde.get(echelon);
+
+        player.setEchelon(echelon);
+        player.setBourse(bourse);
+
+        System.out.println("Le crous vous a attribué l'échelon " + echelon + " \nVotre bourse s'élève à " + bourse);  
+    }
+
+>>>>>>> 3d5519ffb49e8bac1139fcc7e7e41b4adf34c22c
 }
