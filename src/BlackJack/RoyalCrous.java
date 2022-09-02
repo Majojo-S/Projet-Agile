@@ -27,7 +27,8 @@ public class RoyalCrous {
         while(fin != true) {
         	Packet jeu = new Packet(nb);
         	System.out.println("Début du jeu ! ");
-        	System.out.println(player.bet(scanner));
+			int bet = player.bet(scanner);
+        	System.out.println("Vous avez misé : " + bet + " crédits");
         	clear();
         	player.hand.clear();
         	player.croupier.clear();
@@ -45,6 +46,7 @@ public class RoyalCrous {
 	        while(choix != 0) {
 	        	if(choix == 0) {
 	        		handResult(Result.LOST);
+					updateBourseLost(player, bet);
 	        		choix = 0;
 	        		fin = true;
 	        	} else if(choix == 1 && player.totalOfHand() < 21){
@@ -52,6 +54,7 @@ public class RoyalCrous {
 	            	System.out.println("Votre main est : " + player.hand + "total : " + player.totalOfHand());
 	            	if(player.totalOfHand() > 21) {
 	            		handResult(Result.LOST);
+						updateBourseLost(player, bet);
 	            		choix = 0;
 	            		TimeUnit.SECONDS.sleep(3);
 	            	} else {
@@ -65,10 +68,12 @@ public class RoyalCrous {
 	        		}
 	        		if (player.totalOfCroupier() < player.totalOfHand() || player.totalOfCroupier() > 21) {
 	        			handResult(Result.WIN);
+						updateBourseWin(player, bet);
 	            		choix = 0;
 	            		TimeUnit.SECONDS.sleep(3);
 	            	} else if(player.totalOfHand() > 21 || player.totalOfCroupier() > player.totalOfHand() && player.totalOfCroupier() < 21) {
 	            		handResult(Result.WIN);
+						updateBourseWin(player, bet);
 	            		choix = 0;
 	            		TimeUnit.SECONDS.sleep(3);
 	            	} else if(player.totalOfCroupier() == player.totalOfHand()) {
@@ -99,6 +104,18 @@ public class RoyalCrous {
     		System.out.println("Egalité vous recuperez votre mise");
     	}
     }
+
+	private static void updateBourseWin(Player player, int coins){
+		System.out.println("Vous avez gagné " + coins + " crédits");
+		player.setBourse(player.getBourse() + coins);
+		System.out.println("Il vous reste " + player.getBourse() + "crédits");
+	}
+
+	private static void updateBourseLost(Player player, int coins){
+		System.out.println("Vous avez perdu " + coins + " crédits");
+		player.setBourse(player.getBourse() - coins);
+		System.out.println("Il vous reste " + player.getBourse() + "crédits");
+	}
 
     
 }
