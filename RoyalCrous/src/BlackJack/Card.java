@@ -17,12 +17,8 @@ public class Card {
 		return this.color;
 	}
 	
-	public String toStringJoueur() {
-		return("Vous avez tiré un " + getRank() + " de " + getColor()+ "\n");
-	}
-	
-	public String ToStringOrdi() {
-		return("le croupier à tiré un "+ getRank() + " de " + getColor()+ "\n");
+	public String toString() {
+		return(getRank() + " de " + getColor()+ "\n");
 	}
 	
 }

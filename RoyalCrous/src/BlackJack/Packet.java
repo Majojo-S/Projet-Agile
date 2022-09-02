@@ -20,12 +20,8 @@ import java.util.Random;
 			}
 		}
 		
-		public int NbCard()
-
-
-		@Override
-		public String toString() {
-			return "Packet [packet=" + packet + "]";
+		public String toStringJoueur() {
+			return("Vous avez tiré un " + packet.toString());
 		}
 
 
@@ -33,15 +29,16 @@ import java.util.Random;
 			return packet;
 		}
 		
-		public void PickCard() {
+		public Card PickCard() {
 			Random rand = new Random();
 			int pioche = rand.nextInt(packet.size()+1);
+			return packet.get(pioche);
 		}
 		
 		
 		public static void main(String[] args) {
 			Packet packet = new Packet(5);
-			System.out.println(packet);
+			System.out.println(packet.PickCard());
 		}
 	
 }
