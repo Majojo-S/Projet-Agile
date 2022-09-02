@@ -18,7 +18,7 @@ public class Card {
 	}
 	
 	public String toString() {
-		return("La carte est : " + getRank() + " de " + getColor()+ "\n");
+		return(getRank() + " de " + getColor()+ "\n");
 	}
 	
 }
