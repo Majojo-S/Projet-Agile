@@ -8,10 +8,13 @@ import java.util.List;
 		private List<Card> packet = new ArrayList<Card>();
 		
 	
-		public Packet() {
+		public Packet(int nb) {
 			for(int i = 0; i < 4; i++) {
 				for(int j = 1; j < 11; j++) {
-					packet.add(new Card(Rank.values()[j],Color.values()[i]));
+					for(int nbpack = 0; nbpack < nb; nbpack ++) {
+						packet.add(new Card(Rank.values()[j],Color.values()[i]));
+					}
+					
 				}
 			}
 		}
@@ -28,7 +31,7 @@ import java.util.List;
 		}
 		
 		public static void main(String[] args) {
-			Packet packet = new Packet();
+			Packet packet = new Packet(5);
 			System.out.println(packet);
 		}
 	
