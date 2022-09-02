@@ -12,24 +12,10 @@ public class Player {
 	int bourse;
 	String name;
 	int echelon;
-<<<<<<< HEAD
 	List<Card> hand = new ArrayList<Card>();
 	List<Card> croupier = new ArrayList<Card>();
-		
-		/**
-		 * @param bourse
-		 * @param name
-		 * @param echelon
-		 */
-		public Player(int bourse, String name, int echelon) {
-		super();
-		this.bourse = bourse;
-=======
-	List<Card> packet = new ArrayList<Card>();
-	
 	
 	public Player(String name){
->>>>>>> 94392d44584ddfcf1388c3c0fc2d5ea61cd066dd
 		this.name = name;
 	}
 
