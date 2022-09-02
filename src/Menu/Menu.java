@@ -18,7 +18,7 @@ import BlackJack.RoyalCrous;
 public class Menu {
 	private static Players players= new Players();
 	private static Player p1;
-	
+
 
 
 
@@ -29,6 +29,12 @@ public class Menu {
 
 
 	public static void main(String[] args) throws IOException{
+		titleMenu();
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		players.loadPlayers();
 		boolean exit = false;
 		String input;
@@ -110,6 +116,15 @@ public class Menu {
 		}
 	}
 
+	private static void titleMenu() {
+		System.out.println(" |  __ \\                 | |  / ____|                    \n" + 
+				" | |__) |___  _   _  __ _| | | |     _ __ ___  _   _ ___ \n" + 
+				" |  _  // _ \\| | | |/ _` | | | |    | '__/ _ \\| | | / __|\n" + 
+				" | | \\ \\ (_) | |_| | (_| | | | |____| | | (_) | |_| \\__ \\\n" + 
+				" |_|  \\_\\___/ \\__, |\\__,_|_|  \\_____|_|  \\___/ \\__,_|___/\n" + 
+				"               __/ |                                     \n" + 
+				"              |___/                                   ");
+	}
 
 	private static void playMenu() throws IOException, InterruptedException{
 		boolean exit = false;
@@ -122,7 +137,7 @@ public class Menu {
 					+"┃2┃ LoadPlayers┃\n"
 					+"╠═╬════════════╣\n"
 					+"┃3┃ Ranking    ┃\n"
-					+"╠═╧════════════╣\n"
+					+"╠═╬════════════╣\n"
 					+"┃4┃ Back       ┃\n"
 					+"╚═╧════════════╝\n"
 					+"               \n"
@@ -138,16 +153,17 @@ public class Menu {
 
 				String nom= userInput.nextLine();
 
+				p1=new Player(100,nom,1);
 
-				while(!players.addPlayer(nom)) {
+				init(p1);
+				
+				while(!players.addPlayer(p1)) {
 					nom= userInput.nextLine();
 
 				}
 				System.out.println(nom);
 
-				p1=new Player(1000,nom,1);
 				
-				init(p1);
 
 				play();
 				exit = false;
@@ -177,12 +193,12 @@ public class Menu {
 
 				exit = true;
 				break;
-			
+
 			case "3":
 
 				rankingMenu();
 				break;
-			
+
 			case "4":
 
 				exit = true;
@@ -214,7 +230,7 @@ public class Menu {
 	}
 
 	private static void clear(){
-		for (int i = 0; i < 14; i++) {
+		for (int i = 0; i < 10; i++) {
 			System.out.println("\n");
 		}
 	}
@@ -239,11 +255,8 @@ public class Menu {
 		default:
 			break;
 		}
-
-
 	}
-	
-	
+
 
 	private static void rankingMenu() {
 		String [] best=new String [5];
@@ -257,33 +270,34 @@ public class Menu {
 		}
 		System.out.println(best[0]
 				+"\n"+best[1]
-				+"\n"+best[2]
-				+"\n"+best[3]
-				+"\n"+best[4]);
+						+"\n"+best[2]
+								+"\n"+best[3]
+										+"\n"+best[4]);
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	private static void init(Player player){
-        Map<Integer,Integer> solde = new HashMap<>();
-        solde.put(1, 100);
-        solde.put(2, 200);
-        solde.put(3, 300);
-        solde.put(4, 400);
-        solde.put(5, 500);
-        solde.put(6, 600);
+		Map<Integer,Integer> solde = new HashMap<>();
+		solde.put(1, 100);
+		solde.put(2, 200);
+		solde.put(3, 300);
+		solde.put(4, 400);
+		solde.put(5, 500);
+		solde.put(6, 600);
 
-        Random random = new Random();
-        int echelon = random.nextInt(6) + 1;
-        int bourse = solde.get(echelon);
+		Random random = new Random();
+		int echelon = random.nextInt(6) + 1;
+		int bourse = solde.get(echelon);
 
-        player.setEchelon(echelon);
-        player.setBourse(bourse);
-
-        System.out.println("Le crous vous a attribué l'échelon " + echelon + " \nVotre bourse s'élève à " + bourse);  
-    }
+		p1.setEchelon(echelon);
+		p1.setBourse(bourse);
+		System.out.println(p1);
+		
+		System.out.println("\nLe crous vous a attribué l'échelon " + echelon + " \nVotre bourse s'élève à " + bourse);  
+	}
 
 }

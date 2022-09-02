@@ -1,3 +1,10 @@
 eiofoeiioeioesf 1000
+<<<<<<< HEAD
 dzqdqzd 1000
 zdqdzqdzq 1000
+=======
+theo 1000
+s 1000
+ss 1000
+qsddqsd 100
+>>>>>>> 878e6d17c33ee327609b9a9743bd946746da1679
