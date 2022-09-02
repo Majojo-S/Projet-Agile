@@ -17,13 +17,8 @@ import BlackJack.RoyalCrous;
 
 public class Menu {
 	private static Players players= new Players();
-<<<<<<< HEAD
-	private static Player currentPlayer;
-	// SALUT 
-=======
 	private static Player p1;
 	
->>>>>>> 3d5519ffb49e8bac1139fcc7e7e41b4adf34c22c
 
 
 
@@ -138,7 +133,11 @@ public class Menu {
 			switch (input) {
 			case "1":
 
-				String nom = getName(userInput);
+				System.err.println(" Bienvenue dans Royal Crous \n"
+						+ "Quelle est ton prénom ?  ");
+
+				String nom= userInput.nextLine();
+
 
 				while(!players.addPlayer(nom)) {
 					nom= userInput.nextLine();
@@ -146,13 +145,9 @@ public class Menu {
 				}
 				System.out.println(nom);
 
-<<<<<<< HEAD
-				currentPlayer=new Player(1000,nom,1);
-=======
 				p1=new Player(1000,nom,1);
 				
 				init(p1);
->>>>>>> 3d5519ffb49e8bac1139fcc7e7e41b4adf34c22c
 
 				play();
 				exit = false;
@@ -165,13 +160,8 @@ public class Menu {
 
 				try {
 					if(players.existingName(nomLoad)) {
-<<<<<<< HEAD
-						System.out.println("cool de te revoir"+nomLoad);
-						currentPlayer=players.loadPlayer(nomLoad);
-=======
 						System.out.println("cool de te revoir "+nomLoad);
 						p1=players.loadPlayer(nomLoad);
->>>>>>> 3d5519ffb49e8bac1139fcc7e7e41b4adf34c22c
 					}
 					else { System.out.println("mais je ne t'ai jamais vu ici "+nomLoad+"  !");
 					try {
@@ -276,21 +266,6 @@ public class Menu {
 			e.printStackTrace();
 		}
 	}
-<<<<<<< HEAD
-
-	private static String getName(Scanner userInput) {
-		System.err.println(" Bienvenue dans Royal Crous \n"+ "Quelle est ton prénom ?  ");
-		String nom= userInput.nextLine();
-		currentPlayer = new Player(nom);
-		return nom;
-	}
-	
-	public Player getCurrentPlayer() {
-		return this.currentPlayer;
-	}
-	
-	
-=======
 	
 	private static void init(Player player){
         Map<Integer,Integer> solde = new HashMap<>();
@@ -311,5 +286,4 @@ public class Menu {
         System.out.println("Le crous vous a attribué l'échelon " + echelon + " \nVotre bourse s'élève à " + bourse);  
     }
 
->>>>>>> 3d5519ffb49e8bac1139fcc7e7e41b4adf34c22c
 }
