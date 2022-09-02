@@ -29,6 +29,8 @@ public class RoyalCrous {
 
         init(player);
 
+        System.out.println(player.bet(scanner));
+
         //System.out.println("Vous avez " + player.getBourse() + "jetons");
         
         System.out.println("Combien de paquet ? :");

@@ -63,11 +63,9 @@ public class Player {
 	}
 
 	//TODO : exception unvalid bet
-	public int bet(){
+	public int bet(Scanner sc){
 		System.out.println("Entrez votre mise : ");
-		Scanner sc = new Scanner(System.in);
 		int coins = sc.nextInt();
-		sc.close();
 		return coins;
 	}
 
