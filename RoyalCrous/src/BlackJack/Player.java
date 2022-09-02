@@ -13,13 +13,13 @@ public class Player {
 	
 		
 		/**
-		 * @param score
+		 * @param bourse
 		 * @param name
 		 * @param echelon
 		 */
-		public Player(int score, String name, int echelon) {
+		public Player(int bourse, String name, int echelon) {
 		super();
-		this.bourse = score;
+		this.bourse = bourse;
 		this.name = name;
 		this.echelon = echelon;
 	}
@@ -55,6 +55,6 @@ public class Player {
 	public void setScore(int score) {
 		this.bourse = score;
 	}
-	
+
 	
 }
