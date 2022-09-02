@@ -2,6 +2,7 @@ package BlackJack;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 
 	public class Packet {
@@ -18,6 +19,8 @@ import java.util.List;
 				}
 			}
 		}
+		
+		public int NbCard()
 
 
 		@Override
@@ -29,6 +32,12 @@ import java.util.List;
 		public List<Card> getToto() {
 			return packet;
 		}
+		
+		public void PickCard() {
+			Random rand = new Random();
+			int pioche = rand.nextInt(packet.size()+1);
+		}
+		
 		
 		public static void main(String[] args) {
 			Packet packet = new Packet(5);
