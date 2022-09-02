@@ -29,13 +29,33 @@ public class RoyalCrous {
         System.out.println("Combien de paquet ? :");
         int nb = scanner.nextInt();
         Packet jeu = new Packet(nb);
-        String choix = "";
-        while(choix != "fin") {
-        	System.out.println("Votre carte est : " + jeu.PickCard());
-        	System.out.println("voulez vous re-piochez ?" + "\n");
-        	choix = scanner.nextLine();
-        	if(choix == "non" || choix == "NON" || choix == "fin" || choix == "FIN") {
-        		choix = "fin";
+        int choix = 0;
+        player.hand.add(jeu.PickCard());
+    	player.hand.add(jeu.PickCard());
+    	player.croupier.add(jeu.PickCard());
+    	System.out.println("Votre main est : " + player.hand + "total : " + player.totalOfHand() + "\n");
+    	System.out.println("La carte du croupier est : " + player.croupier + "total : "+ player.totalOfCroupier()+ "\n");
+    	System.out.println("Voulez-vous re-piochez ? 1 ou 2");
+    	choix = scanner.nextInt();
+    	System.out.println(choix);
+        while(choix != 0 || choix != 0) {
+        	if(choix == 0) {
+        		System.out.println("Vous avez perdu le Croupier Gagne");
+        		choix = 0;
+        	} else if(choix == 1 && player.totalOfHand() < 21){
+        		player.hand.add(jeu.PickCard());
+            	System.out.println("Votre main est : " + player.hand + "total : " + player.totalOfHand());
+            	if(player.totalOfHand() > 21) {
+            		System.out.println("Vous avez perdu le Croupier Gagne");
+            		choix = 0;
+            	}
+            	System.out.println("Voulez-vous re-piochez ? 1 ou 2");
+            	choix = scanner.nextInt();
+        	} else if (choix == 2) {
+        		
+        	} else if (player.totalOfHand() == 21 && player.totalOfCroupier() < player.totalOfHand()) {
+        		System.out.println("Vous avez gagné");
+        		choix = 0;
         	}
         }
         scanner.close();
