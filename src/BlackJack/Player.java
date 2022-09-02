@@ -12,8 +12,8 @@ public class Player {
 	int bourse;
 	String name;
 	int echelon;
-	List<Card> packet = new ArrayList<Card>();
-	
+	List<Card> hand = new ArrayList<Card>();
+	List<Card> croupier = new ArrayList<Card>();
 	
 	public Player(String name){
 		this.name = name;
@@ -60,6 +60,22 @@ public class Player {
 	 */
 	public void setScore(int score) {
 		this.bourse = score;
+	}
+	
+	public int totalOfHand() {
+		int calcul = 0;
+		for(int idx = 0; idx < this.hand.size(); idx ++) {
+			calcul = calcul + hand.get(idx).getRank().points;
+		}
+		return calcul;
+	}
+	
+	public int totalOfCroupier() {
+		int calcul = 0;
+		for(int idx = 0; idx < this.croupier.size(); idx ++) {
+			calcul = calcul + croupier.get(idx).getRank().points;
+		}
+		return calcul;
 	}
 
 	//TODO : exception unvalid bet

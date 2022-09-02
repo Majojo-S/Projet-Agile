@@ -1,8 +1,5 @@
 package BlackJack;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
 import java.util.Scanner;
 
 public class RoyalCrous {
@@ -27,22 +24,46 @@ public class RoyalCrous {
 
         Player player = new Player(bourse, name, echelon);
 
+<<<<<<< HEAD
         init(player);
 
         System.out.println(player.bet(scanner));
 
         //System.out.println("Vous avez " + player.getBourse() + "jetons");
+=======
+        System.out.println("Vous avez " + player.getBourse() + "jetons");
+>>>>>>> 99cb235aaa6286d6ca9efa37e035ce49b1cb391e
         
         System.out.println("Combien de paquet ? :");
         int nb = scanner.nextInt();
         Packet jeu = new Packet(nb);
-        String choix = "";
-        while(choix != "fin") {
-        	System.out.println("Votre carte est : " + jeu.PickCard());
-        	System.out.println("voulez vous re-piochez ?" + "\n");
-        	choix = scanner.nextLine();
-        	if(choix.equalsIgnoreCase("non") || choix.equalsIgnoreCase("fin")) {
-        		choix = "fin";
+        int choix = 0;
+        player.hand.add(jeu.PickCard());
+    	player.hand.add(jeu.PickCard());
+    	player.croupier.add(jeu.PickCard());
+    	System.out.println("Votre main est : " + player.hand + "total : " + player.totalOfHand() + "\n");
+    	System.out.println("La carte du croupier est : " + player.croupier + "total : "+ player.totalOfCroupier()+ "\n");
+    	System.out.println("Voulez-vous re-piochez ? 1 ou 2");
+    	choix = scanner.nextInt();
+    	System.out.println(choix);
+        while(choix != 0 || choix != 0) {
+        	if(choix == 0) {
+        		System.out.println("Vous avez perdu le Croupier Gagne");
+        		choix = 0;
+        	} else if(choix == 1 && player.totalOfHand() < 21){
+        		player.hand.add(jeu.PickCard());
+            	System.out.println("Votre main est : " + player.hand + "total : " + player.totalOfHand());
+            	if(player.totalOfHand() > 21) {
+            		System.out.println("Vous avez perdu le Croupier Gagne");
+            		choix = 0;
+            	}
+            	System.out.println("Voulez-vous re-piochez ? 1 ou 2");
+            	choix = scanner.nextInt();
+        	} else if (choix == 2) {
+        		
+        	} else if (player.totalOfHand() == 21 && player.totalOfCroupier() < player.totalOfHand()) {
+        		System.out.println("Vous avez gagné");
+        		choix = 0;
         	}
         }
         scanner.close();
@@ -52,27 +73,6 @@ public class RoyalCrous {
       //  System.out.println("Vous avez " + player.getBourse() + "jetons");
     //}
 
-    private static void init(Player player ){
-        Map<Integer,Integer> solde = new HashMap<>();
-        solde.put(1, 100);
-        solde.put(2, 200);
-        solde.put(3, 300);
-        solde.put(4, 400);
-        solde.put(5, 500);
-        solde.put(6, 600);
-
-        Random random = new Random();
-        int echelon = random.nextInt(6) + 1;
-        int bourse = solde.get(echelon);
-
-        player.echelon = echelon;
-        player.bourse = bourse;
-
-        System.out.println("Le crous vous a attribué l'échelon " + echelon + " \nVotre bourse s'élève à " + bourse);
-
-
-        
-    }
 
     
 }
