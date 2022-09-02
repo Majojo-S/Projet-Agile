@@ -1,6 +1,8 @@
 package BlackJack;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
+
 import BlackJack.Card;
 
 public class Player {
@@ -10,8 +12,9 @@ public class Player {
 	int bourse;
 	String name;
 	int echelon;
-	List<Card> packet = new ArrayList<Card>();
-	
+<<<<<<< HEAD
+	List<Card> hand = new ArrayList<Card>();
+	List<Card> croupier = new ArrayList<Card>();
 		
 		/**
 		 * @param bourse
@@ -21,7 +24,23 @@ public class Player {
 		public Player(int bourse, String name, int echelon) {
 		super();
 		this.bourse = bourse;
+=======
+	List<Card> packet = new ArrayList<Card>();
+	
+	
+	public Player(String name){
+>>>>>>> 94392d44584ddfcf1388c3c0fc2d5ea61cd066dd
 		this.name = name;
+	}
+
+	/**
+	 * @param bourse
+	 * @param name
+	 * @param echelon
+	 */
+	public Player(int bourse, String name, int echelon) {
+		this(name);
+		this.bourse = bourse;
 		this.echelon = echelon;
 	}
 
@@ -56,8 +75,31 @@ public class Player {
 	public void setScore(int score) {
 		this.bourse = score;
 	}
-
 	
+	public int totalOfHand() {
+		int calcul = 0;
+		for(int idx = 0; idx < this.hand.size(); idx ++) {
+			calcul = calcul + hand.get(idx).getRank().points;
+		}
+		return calcul;
+	}
+	
+	public int totalOfCroupier() {
+		int calcul = 0;
+		for(int idx = 0; idx < this.croupier.size(); idx ++) {
+			calcul = calcul + croupier.get(idx).getRank().points;
+		}
+		return calcul;
+	}
+
+	//TODO : exception unvalid bet
+	public int bet(){
+		System.out.println("Entrez votre mise : ");
+		Scanner sc = new Scanner(System.in);
+		int coins = sc.nextInt();
+		sc.close();
+		return coins;
+	}
 
 	
 }
