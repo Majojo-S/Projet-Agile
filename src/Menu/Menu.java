@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import BlackJack.Player;
+import BlackJack.Players;
 import BlackJack.RoyalCrous;
 
 
@@ -13,9 +14,8 @@ import BlackJack.RoyalCrous;
 public class Menu {
 
 	private static Scanner userInput = new Scanner(System.in);
-	//private static AllPlayer all= new AllPlayer();
 	private static Player p1;
-	private static List<Player> all = new ArrayList<Player>();
+	private static Players players = new Players();
 
 	private static void clear(){
 		for (int i = 0; i < 10; i++) {
@@ -96,18 +96,18 @@ public class Menu {
 						+ "Quelle est ton prénom ?  ");
 
 
-				String nom= userInput.nextLine();
+				String name= userInput.nextLine();
 
-				while(!all.add(p1)) {
-					nom= userInput.nextLine();
+				while(!players.addPlayer(name)) {
+					name= userInput.nextLine();
 
 				}
 
-				System.out.println(nom);
+				
 
 				playingMenu();
 				
-				p1=new Player(100,nom,1);
+				p1=new Player(100,name,1);
 
 				exit = false;
 				break;
