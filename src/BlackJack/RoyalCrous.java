@@ -8,7 +8,9 @@ import java.util.concurrent.TimeUnit;
 
 public class RoyalCrous {
 
-    public static void main(String[] args) throws InterruptedException {
+	
+	
+	public static void main(Player[] args) throws InterruptedException {
         System.out.println("Voulez-vous commencer une partie ? Entrez oui ou non");
 
         Scanner scanner = new Scanner(System.in);
@@ -19,12 +21,7 @@ public class RoyalCrous {
             //Inserer methode init
         }
 
-        
-        System.out.println("Entrez votre nom");
-        String name = scanner.nextLine();
-
-        Player player = new Player(name);
-        init(player);
+        Player player = args[0];
 
         System.out.println("Vous avez " + player.getBourse() + "jetons");
 
@@ -93,24 +90,7 @@ public class RoyalCrous {
         scanner.close();
     }
 
-    private static void init(Player player ){
-        Map<Integer,Integer> solde = new HashMap<>();
-        solde.put(1, 100);
-        solde.put(2, 200);
-        solde.put(3, 300);
-        solde.put(4, 400);
-        solde.put(5, 500);
-        solde.put(6, 600);
-
-        Random random = new Random();
-        int echelon = random.nextInt(6) + 1;
-        int bourse = solde.get(echelon);
-
-        player.echelon = echelon;
-        player.bourse = bourse;
-
-        System.out.println("Le crous vous a attribué l'échelon " + echelon + " \nVotre bourse s'élève à " + bourse);  
-    }
+    
     
     private static void clear(){
 		for (int i = 0; i < 14; i++) {

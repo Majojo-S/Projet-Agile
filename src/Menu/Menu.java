@@ -3,6 +3,9 @@ package Menu;
 
 import java.io.IOException;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
 import java.util.Scanner;
 import BlackJack.Player;
 import BlackJack.Players;
@@ -143,6 +146,8 @@ public class Menu {
 				System.out.println(nom);
 
 				p1=new Player(1000,nom,1);
+				
+				init(p1);
 
 				play();
 				exit = false;
@@ -225,7 +230,7 @@ public class Menu {
 		switch (choix) {
 		case "1":
 			clear();
-			String[] args = null;
+			Player[] args = {p1};
 			RoyalCrous.main(args);
 			players.updateTxt();
 
@@ -237,6 +242,8 @@ public class Menu {
 
 
 	}
+	
+	
 
 	private static void rankingMenu() {
 		String [] best=new String [5];
@@ -260,5 +267,23 @@ public class Menu {
 		}
 	}
 	
+	private static void init(Player player){
+        Map<Integer,Integer> solde = new HashMap<>();
+        solde.put(1, 100);
+        solde.put(2, 200);
+        solde.put(3, 300);
+        solde.put(4, 400);
+        solde.put(5, 500);
+        solde.put(6, 600);
+
+        Random random = new Random();
+        int echelon = random.nextInt(6) + 1;
+        int bourse = solde.get(echelon);
+
+        player.setEchelon(echelon);
+        player.setBourse(bourse);
+
+        System.out.println("Le crous vous a attribué l'échelon " + echelon + " \nVotre bourse s'élève à " + bourse);  
+    }
 
 }
