@@ -1,3 +1,6 @@
 test 1250
 test3 1000
 test1 200
+Test6 936
+t 1000
+testtttt 1000

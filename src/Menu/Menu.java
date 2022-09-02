@@ -2,9 +2,7 @@ package Menu;
 
 
 import java.io.IOException;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.Scanner;
 
 import BlackJack.Game;
@@ -17,10 +15,9 @@ import BlackJack.RoyalCrous;
 
 
 public class Menu {
-	public String abdel;
 	private static Players players= new Players();
 	private static Player p1;
-	// SALUT 
+	
 
 
 
@@ -75,7 +72,7 @@ public class Menu {
 		}
 	}
 
-	private static void LoadingMenu() {
+	private static void LoadingMenu() throws InterruptedException {
 		System.out.println("Loading game...");
 		try {
 			Thread.sleep(2000);
@@ -90,7 +87,7 @@ public class Menu {
 			for (int i = 0; i < best.length; i++) {
 				best[i]="n°"+Integer.sum(i, 1)+" no one";
 			}
-			//Collections.sort(players.getPlayers());
+			Collections.sort(players.getPlayers());
 			for (int i = 0; i < players.getPlayers().size(); i++) {
 				best[i]="n°"+Integer.sum(i, 1)+" "+players.getPlayers().get(i).toString();
 				if(i==4)break;
@@ -100,7 +97,7 @@ public class Menu {
 			System.out.print("╔━╤━━━━━━━━━━━━╗\n"
 					+"┃1┃ BlackJack  ┃\n"
 					+"╠═╬════════════╣\n"
-					+"┃3┃ Exit       ┃\n"
+					+"┃2┃ Back       ┃\n"
 					+"╚═╧════════════╝\n"
 					+"               \n"
 					+"Faites un choix : ");
@@ -125,7 +122,7 @@ public class Menu {
 					+"╠═╬════════════╣\n"
 					+"┃3┃ Ranking    ┃\n"
 					+"╠═╧════════════╣\n"
-					+"┃4┃ Exit       ┃\n"
+					+"┃4┃ Back       ┃\n"
 					+"╚═╧════════════╝\n"
 					+"               \n"
 					+"Faites un choix : ");
@@ -154,13 +151,13 @@ public class Menu {
 				break;
 			case "2":
 				System.err.println(" Mais qui revoila ici dans le meilleur jeu ,\n"
-						+ " heu rappel moi ton nom de joueur : ");
+						+ "euh rappel moi ton nom de joueur : ");
 				String nomLoad= userInput.nextLine();
 
 
 				try {
 					if(players.existingName(nomLoad)) {
-						System.out.println("cool de te revoir"+nomLoad);
+						System.out.println("cool de te revoir "+nomLoad);
 						p1=players.loadPlayer(nomLoad);
 					}
 					else { System.out.println("mais je ne t'ai jamais vu ici "+nomLoad+"  !");
@@ -197,10 +194,11 @@ public class Menu {
 
 
 
+	/*@SuppressWarnings("unused")
 	private static String askName(String string) {
 		System.out.print(string+" enter your name : ");
 		return userInput.nextLine();
-	}
+	}*/
 
 	private static void mainMenu() {
 		System.out.print("    ╔━╤━━━━━━━━━━━╗\n"
@@ -220,12 +218,12 @@ public class Menu {
 
 
 
-	private static void play( ) {
+	private static void play( ) throws InterruptedException {
 		LoadingMenu();
 
 
 	}
-	private static void play(String choix ) {
+	private static void play(String choix ) throws InterruptedException {
 		switch (choix) {
 		case "1":
 			clear();
@@ -255,8 +253,15 @@ public class Menu {
 		}
 		System.out.println(best[0]
 				+"\n"+best[1]
-				+"\n"+best[2]);
+				+"\n"+best[2]
+				+"\n"+best[3]
+				+"\n"+best[4]);
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
-
+	
 
 }
