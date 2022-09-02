@@ -1,14 +1,15 @@
 package BlackJack;
+import java.util.ArrayList;
 import java.util.List;
 
-public class Joueur {
+public class Player {
 	/**
 	 * 
 	 */
 	int bourse;
 	String name;
 	int echelon;
-	/*List<Carte> main=new Arraylist<Carte>;**/
+	List<Card> main=new ArrayList<Card>();
 	
 		
 		/**
@@ -16,7 +17,7 @@ public class Joueur {
 		 * @param name
 		 * @param echelon
 		 */
-		public Joueur(int score, String name, int echelon) {
+		public Player(int score, String name, int echelon) {
 		super();
 		this.bourse = score;
 		this.name = name;
