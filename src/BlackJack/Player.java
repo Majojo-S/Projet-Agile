@@ -1,6 +1,8 @@
 package BlackJack;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
+
 import BlackJack.Card;
 
 public class Player {
@@ -12,16 +14,19 @@ public class Player {
 	int echelon;
 	List<Card> packet = new ArrayList<Card>();
 	
-		
-		/**
-		 * @param bourse
-		 * @param name
-		 * @param echelon
-		 */
-		public Player(int bourse, String name, int echelon) {
-		super();
-		this.bourse = bourse;
+	
+	public Player(String name){
 		this.name = name;
+	}
+
+	/**
+	 * @param bourse
+	 * @param name
+	 * @param echelon
+	 */
+	public Player(int bourse, String name, int echelon) {
+		this(name);
+		this.bourse = bourse;
 		this.echelon = echelon;
 	}
 
@@ -57,7 +62,14 @@ public class Player {
 		this.bourse = score;
 	}
 
-	
+	//TODO : exception unvalid bet
+	public int bet(){
+		System.out.println("Entrez votre mise : ");
+		Scanner sc = new Scanner(System.in);
+		int coins = sc.nextInt();
+		sc.close();
+		return coins;
+	}
 
 	
 }
