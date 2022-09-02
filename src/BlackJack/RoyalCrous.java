@@ -11,16 +11,10 @@ public class RoyalCrous {
 	
 	
 	public static void main(Player[] args) throws InterruptedException {
-        System.out.println("Voulez-vous commencer une partie ? Entrez oui ou non");
-
+     
         Scanner scanner = new Scanner(System.in);
-        String input = scanner.nextLine();
 
-        if(input.equals("oui")){
-            System.out.println("La partie commence");
-            //Inserer methode init
-        }
-
+ 
         Player player = args[0];
 
         System.out.println("Vous avez " + player.getBourse() + "jetons");
@@ -29,10 +23,11 @@ public class RoyalCrous {
         
         System.out.println("Combien de paquet ? :");
         int nb = scanner.nextInt();
-        Packet jeu = new Packet(nb);
+        
         int choix = 0;
         boolean fin = false;
         while(fin != true) {
+        	Packet jeu = new Packet(nb);
         	System.out.println("Début du jeu ! ");
         	clear();
         	player.hand.clear();
