@@ -1,6 +1,7 @@
 package BlackJack;
 import java.util.ArrayList;
 import java.util.List;
+import BlackJack.Card;
 
 public class Player {
 	/**
@@ -9,7 +10,7 @@ public class Player {
 	int bourse;
 	String name;
 	int echelon;
-	List<Card> main=new ArrayList<Card>();
+	List<Card> packet = new ArrayList<Card>();
 	
 		
 		/**
