@@ -1,7 +1,7 @@
-#Royal Crous
-##Double ta bourse
+# Royal Crous
+## Double ta bourse
 
-###Membre
+### Membre
 
     Hocine Aliouat
     Renan Declercq
@@ -9,7 +9,7 @@
     Mounir Khatri
     Marine Sandras
 
-###Description
+### Description
 
 Bienvenue au Royal Crous, Le casino des boursiers.
 Venez jouer au Blackjack et à la roulette pour peut-être doubler votre bourse. 
