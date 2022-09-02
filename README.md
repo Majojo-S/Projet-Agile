@@ -9,7 +9,7 @@ Nous avons créer nos USER STORY environ 20 pour un poid total de 40
 nos USER STORY ont une difficulter entre 1 et 8.
 
 ### Ce que nous allons faire durant le prochain sprint
-refaire nous USER STORY car elle ne sont pas bonne.
+    refaire nous USER STORY car elle ne sont pas bonne.
 ## Rétrospective
 
 ### Sur quoi avons nous butté ?
@@ -17,7 +17,7 @@ Lister ici tout ce qui était un peut moins bien que parfait.
 * Avez-vous terminé tout ce que vous vous étiez engagé à faire ?
     oui nous etions dans les temps
 * Nos difficultés:
-    nous avons eu du mal à trouver l'idée de jeu mais nous etions trés inspiré pour les user story malgré ça il y avait certaines taches qui pouvait encore         étre divisé.Mais aprés vérification nos USER STORY n'en etait pas c'etait plus des fiche technique.
+    nous avons eu du mal à trouver l'idée de jeu mais nous etions trés inspiré pour les user story malgré ça il y avait certaines taches qui pouvait encore           étre divisé.Mais aprés vérification nos USER STORY n'en etait pas c'etait plus des fiche technique.
 
 ### PDCA
 * De tous ces éléments quel est celui que vous voulez améliorer ?
