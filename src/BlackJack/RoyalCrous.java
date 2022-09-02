@@ -34,7 +34,7 @@ public class RoyalCrous {
         	System.out.println("Votre carte est : " + jeu.PickCard());
         	System.out.println("voulez vous re-piochez ?" + "\n");
         	choix = scanner.nextLine();
-        	if(choix == "non" || choix == "NON" || choix == "fin" || choix == "FIN") {
+        	if(choix.equalsIgnoreCase("non") || choix.equalsIgnoreCase("fin")) {
         		choix = "fin";
         	}
         }
