@@ -25,7 +25,19 @@ public class RoyalCrous {
         Player player = new Player(bourse, name, echelon);
 
         System.out.println("Vous avez " + player.getBourse() + "jetons");
-
+        
+        System.out.println("Combien de paquet ? :");
+        int nb = scanner.nextInt();
+        Packet jeu = new Packet(nb);
+        String choix = "";
+        while(choix != "fin") {
+        	System.out.println("Votre carte est : " + jeu.PickCard());
+        	System.out.println("voulez vous re-piochez ?" + "\n");
+        	choix = scanner.nextLine();
+        	if(choix == "non" || choix == "NON" || choix == "fin" || choix == "FIN") {
+        		choix = "fin";
+        	}
+        }
         scanner.close();
     }
 
