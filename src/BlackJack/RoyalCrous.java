@@ -6,32 +6,16 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
-import Menu.Menu;
-
 public class RoyalCrous {
 
-<<<<<<< HEAD
-    public static void main(String[] args) throws InterruptedException {
-    	Scanner scanner = new Scanner(System.in);
-    	Menu menu = new Menu();
-        Player player = menu.getCurrentPlayer();
-        init(player);
-=======
 	
 	
 	public static void main(Player[] args) throws InterruptedException {
-        System.out.println("Voulez-vous commencer une partie ? Entrez oui ou non");
-
+     
         Scanner scanner = new Scanner(System.in);
-        String input = scanner.nextLine();
 
-        if(input.equals("oui")){
-            System.out.println("La partie commence");
-            //Inserer methode init
-        }
-
+ 
         Player player = args[0];
->>>>>>> 3d5519ffb49e8bac1139fcc7e7e41b4adf34c22c
 
         System.out.println("Vous avez " + player.getBourse() + "jetons");
 
@@ -39,10 +23,10 @@ public class RoyalCrous {
         
         System.out.println("Combien de paquet ? :");
         int nb = scanner.nextInt();
+        
         int choix = 0;
         boolean fin = false;
         while(fin != true) {
-        	System.out.println(fin);
         	Packet jeu = new Packet(nb);
         	System.out.println("Début du jeu ! ");
         	clear();
@@ -84,7 +68,7 @@ public class RoyalCrous {
 	            		System.out.println("Vous avez gagné");
 	            		choix = 0;
 	            		TimeUnit.SECONDS.sleep(3);
-	            	} else if(player.totalOfHand() > 21 || player.totalOfCroupier() > player.totalOfHand() && player.totalOfCroupier() <= 21) {
+	            	} else if(player.totalOfHand() > 21 || player.totalOfCroupier() > player.totalOfHand() && player.totalOfCroupier() < 21) {
 	            		System.out.println("Vous avez perdu le Croupier Gagne");
 	            		choix = 0;
 	            		TimeUnit.SECONDS.sleep(3);
