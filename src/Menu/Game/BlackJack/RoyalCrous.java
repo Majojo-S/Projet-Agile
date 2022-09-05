@@ -75,6 +75,9 @@ public class RoyalCrous implements Game {
 						event.setTimer(event.getTimer()+1);
 	            		choix = 0;
 	            		try {
+	            			event.RandomEvent(event.getRandEvent(), player);
+	            			event.Loyer(player);
+	            			event.Bourses(player);
 							TimeUnit.SECONDS.sleep(3);
 						} catch (InterruptedException e) {
 							// TODO Auto-generated catch block
@@ -99,18 +102,24 @@ public class RoyalCrous implements Game {
 						clear();
 	            		choix = 0;
 	            		try {
+	            			event.RandomEvent(event.getRandEvent(), player);
+	            			event.Loyer(player);
+	            			event.Bourses(player);
 							TimeUnit.SECONDS.sleep(3);
 						} catch (InterruptedException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
-	            	} else if(player.totalOfHand() > 21 || player.totalOfCroupier() > player.totalOfHand() && player.totalOfCroupier() < 21) {
+	            	} else if(player.totalOfHand() > 21 || player.totalOfCroupier() > player.totalOfHand() && player.totalOfCroupier() <= 21) {
 	            		handResult(Result.WIN);
 						updateBourseWin(player, bet, players);
 						event.setTimer(event.getTimer()+1);
 						clear();
 	            		choix = 0;
 	            		try {
+	            			event.RandomEvent(event.getRandEvent(), player);
+	            			event.Loyer(player);
+	            			event.Bourses(player);
 							TimeUnit.SECONDS.sleep(3);
 						} catch (InterruptedException e) {
 							// TODO Auto-generated catch block
@@ -122,6 +131,9 @@ public class RoyalCrous implements Game {
 	            		choix = 0;
 	            		clear();
 	            		try {
+	            			event.RandomEvent(event.getRandEvent(), player);
+	            			event.Loyer(player);
+	            			event.Bourses(player);
 							TimeUnit.SECONDS.sleep(3);
 						} catch (InterruptedException e) {
 							// TODO Auto-generated catch block
