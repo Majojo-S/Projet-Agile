@@ -8,14 +8,11 @@ import java.util.concurrent.TimeUnit;
 
 public class RoyalCrous {
 
-	
-	
-	public static void main(Player[] args) throws InterruptedException {
-     
-        Scanner scanner = new Scanner(System.in);
+	public static void start(Player p, Players players) throws InterruptedException{
+		Scanner scanner = new Scanner(System.in);
 
- 
-        Player player = args[0];
+		 
+        Player player = p;
 
         System.out.println("Vous avez " + player.getBourse() + "jetons");
         
@@ -44,6 +41,7 @@ public class RoyalCrous {
 	    	System.out.println("1 pour piocher et 2 pour rester, -1 pour quitter");
 	    	choix = scanner.nextInt();
 	        while(choix != 0) {
+	        	
 	        	if(choix == -1) {
 	        		choix = 0;
 	        		fin = true;
@@ -95,8 +93,9 @@ public class RoyalCrous {
         }
 	        
         scanner.close();
-    }
-
+	}
+	
+	
     private static void clear(){
 		for (int i = 0; i < 14; i++) {
 			System.out.println("\n");
@@ -116,6 +115,7 @@ public class RoyalCrous {
 	private static void updateBourseWin(Player player, int coins){
 		System.out.println("Vous avez gagné " + coins + " crédits");
 		player.setBourse(player.getBourse() + coins);
+		
 		System.out.println("Il vous reste " + player.getBourse() + "crédits");
 	}
 

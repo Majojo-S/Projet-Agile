@@ -152,7 +152,7 @@ public class Menu {
 			switch (input) {
 			case "1":
 
-				System.err.println(" Bienvenue dans Royal Crous \n"
+				System.err.println("Bienvenue dans Royal Crous \n"
 						+ "Quelle est ton prénom ?  ");
 
 				String nom= userInput.nextLine();
@@ -163,8 +163,8 @@ public class Menu {
 				
 				while(!players.addPlayer(p1)) {
 					nom= userInput.nextLine();
-
 				}
+				System.out.println(players);
 				System.out.println(nom);
 
 				
@@ -217,12 +217,6 @@ public class Menu {
 
 
 
-	/*@SuppressWarnings("unused")
-	private static String askName(String string) {
-		System.out.print(string+" enter your name : ");
-		return userInput.nextLine();
-	}*/
-
 	private static void mainMenu() {
 		System.out.print("    ╔━╤━━━━━━━━━━━╗\n"
 				+"    ┃1┃ Play      ┃\n"
@@ -250,10 +244,8 @@ public class Menu {
 		switch (choix) {
 		case "1":
 			clear();
-			Player[] args = {p1};
-			RoyalCrous.main(args);
+			RoyalCrous.start(p1, players);
 			players.updateTxt();
-
 			LoadingMenu();
 			break;
 		case "2":

@@ -97,6 +97,7 @@ public class Player implements Comparable<Player>{
 
 	public void setBourse(int bourse) {
 		this.bourse = bourse;
+		
 	}
 
 	public void setEchelon(int echelon) {

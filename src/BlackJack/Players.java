@@ -128,8 +128,7 @@ public class Players {
 	}
 	
 	public void updateTxt() {
-		//Collections.sort(players);
-		// System.out.println("liste ordonnée des profils selon l'argent dans le wallet:\n");
+		
 		  for(Player e:players) {
 		   System.out.println(e);
 		 }
