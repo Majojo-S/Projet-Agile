@@ -134,6 +134,7 @@ public class Menu {
 	}
 
 	private static void playMenu() throws IOException, InterruptedException{
+		initSecretPlayer();
 		boolean exit = false;
 		String input;
 		while(!exit) {
@@ -155,11 +156,16 @@ public class Menu {
 			switch (input) {
 			case "1":
 
+				
 				System.err.println("Bienvenue dans Royal Crous \n"
 						+ "Quelle est ton prénom ?  ");
 
 				String nom= userInput.nextLine();
 
+				while(players.existingName(nom)) {
+					System.out.println("Votre nom est déjà pris veuillez en choisir un autre.");
+				}
+				
 				if(secretPlayer.contains(nom)) {
 					p1 = new SecretPlayer(nom);
 				}else {
@@ -305,4 +311,9 @@ public class Menu {
 		System.out.println("\nLe crous vous a attribué l'échelon " + echelon + " \nVotre bourse s'élève à " + bourse);  
 	}
 
+	private static void initSecretPlayer(){
+		List<String> list = new ArrayList<String>();
+		list.add("test");
+		secretPlayer = list;
+	}
 }
