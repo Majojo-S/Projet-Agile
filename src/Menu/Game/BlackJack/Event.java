@@ -68,15 +68,10 @@ public class Event {
 			System.out.println(red+"OOF, la grosse amende dans les dents, attention la prochaine fois... - 50 crédits \n"+ANSI_RESET);
 		} else if(rte.equals(RandomTypeEvent.ABSENT)) {
 			p.setBourse(p.getBourse() - 150);
-<<<<<<< HEAD
-			System.out.println("Le CROUS n'est pas contend la, vous avez était trop absent en cour récemment ils vous enlèvent donc 150 crédits (plutôt que vous enlevez votre bourse) \\n");
-		} else {
-			System.out.println("Bah non y'a rien");
-=======
 			System.out.println(red+"Le CROUS n'est pas content la, vous avez était trop absent en cour récemment ils vous enlèvent donc 150 crédits (plutôt que vous enlevez votre bourse) \n"+ANSI_RESET);
 		} else {
 			System.out.println(blue+"Bah non ya rien"+ANSI_RESET);
->>>>>>> 0781594 (updt)
+
 		}
 	}
 	
