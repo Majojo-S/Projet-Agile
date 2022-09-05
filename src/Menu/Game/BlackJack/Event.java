@@ -78,6 +78,7 @@ public class Event {
 	
 	
 	public RandomTypeEvent getRandEvent() {
+		
 		Random rand = new Random();
 		if(rand.nextInt(10) == 1) {
 			return RandomTypeEvent.PH;
