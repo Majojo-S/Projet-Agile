@@ -258,9 +258,12 @@ public class Menu {
 					else { System.out.println("mais je ne t'ai jamais vu ici "+nomLoad+"  !");
 					try {
 						Thread.sleep(3000);
+						exit = true;
+						break;
 					} catch (Exception e) {
+						}
 					}
-					}
+					
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
