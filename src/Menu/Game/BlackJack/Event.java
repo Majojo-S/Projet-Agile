@@ -1,9 +1,16 @@
 package Menu.Game.BlackJack;
 
+import java.io.IOException;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
+import Menu.Menu;
+
 public class Event {
+	/**
+	 *
+	 */
+	private static final String FELICITATIONS = "Felicitations ";
 	private int timer = 0;
 	
 	public Event(int timer) {
@@ -68,15 +75,9 @@ public class Event {
 			System.out.println(red+"OOF, la grosse amende dans les dents, attention la prochaine fois... - 50 crédits \n"+ANSI_RESET);
 		} else if(rte.equals(RandomTypeEvent.ABSENT)) {
 			p.setBourse(p.getBourse() - 150);
-<<<<<<< HEAD
-			System.out.println("Le CROUS n'est pas contend la, vous avez était trop absent en cour récemment ils vous enlèvent donc 150 crédits (plutôt que vous enlevez votre bourse) \\n");
-		} else {
-			System.out.println("Bah non y'a rien");
-=======
 			System.out.println(red+"Le CROUS n'est pas content la, vous avez était trop absent en cour récemment ils vous enlèvent donc 150 crédits (plutôt que vous enlevez votre bourse) \n"+ANSI_RESET);
 		} else {
 			System.out.println(blue+"Bah non ya rien"+ANSI_RESET);
->>>>>>> 0781594 (updt)
 		}
 	}
 	
@@ -104,6 +105,45 @@ public class Event {
 			return RandomTypeEvent.RIEN;
 		}
 		
+	}
+
+	public boolean WinTheGame(int bourse){
+		if(bourse >= 8000){
+			System.out.println("\nVous avez atteint les 8000 crédits , le Crous a explosé !");
+
+			//TODO : EXPLOSION
+
+
+			try {
+				TimeUnit.SECONDS.sleep(3);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return true;
+		}
+		return false;
+	}
+
+	public boolean LostTheGame(int bourse){
+		String [] args = null;
+		if(bourse <= 0){
+			System.out.println("\nLe Crous vous a dépouillé , vous n'avez plus de crédits !");
+			try {
+				try {
+					TimeUnit.SECONDS.sleep(5);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				Menu.main(args);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return true;
+		}
+		return false;
 	}
 	
 }

@@ -1,9 +1,11 @@
-<<<<<<< HEAD
-......... 650
+RRRRRRRR 800
 huukuhk 600
 rgdgrdg 600
 testf 600
+RRRRRRR 600
 jnink 400
-.................... 100
-=======
->>>>>>> 0781594 (updt)
+REGZ 0
+RTHEHERH 0
+jiojo 0
+THTRH 0
+HHHH 0

@@ -76,7 +76,7 @@ public class Menu {
 
 
 
-	private static void exitMenu() {
+	public static void exitMenu() {
 		System.out.println("Merci d'avoir joué !");
 		try {
 			Thread.sleep(3000);
@@ -378,7 +378,6 @@ public class Menu {
 
 		p1.setEchelon(echelon);
 		p1.setBourse(bourse);
-		System.out.println(p1);
 		
 		System.out.println("\nLe crous vous a attribué l'échelon " + echelon + " \nVotre bourse s'élève à " + bourse);  
 	}
@@ -388,4 +387,6 @@ public class Menu {
 		list.add("test");
 		secretPlayer = list;
 	}
+
+	
 }

@@ -59,6 +59,7 @@ public class RoyalCrous implements Game {
 	    	if(player.totalOfHand() == 21) {
 	    		System.out.println("BLACKJACK ! Vous remportez cette partie !");
 	    		updateBourseWin(player, bet, players);
+				event.WinTheGame(player.getBourse());
 	    		choix = 0;
 	    	}
 	    	
@@ -78,6 +79,7 @@ public class RoyalCrous implements Game {
 	            	if(player.totalOfHand() > 21) {
 	            		handResult(Result.LOST);
 						updateBourseLost(player, bet, players);
+						event.LostTheGame(player.getBourse());
 						event.setTimer(event.getTimer()+1);
 	            		choix = 0;
 	            		try {
@@ -104,6 +106,7 @@ public class RoyalCrous implements Game {
 	        		if (player.totalOfCroupier() < player.totalOfHand() || player.totalOfCroupier() > 21) {
 	        			handResult(Result.WIN);
 						updateBourseWin(player, bet, players);
+						event.WinTheGame(player.getBourse());
 						event.setTimer(event.getTimer()+1);						
 						clear();
 	            		choix = 0;
@@ -119,6 +122,7 @@ public class RoyalCrous implements Game {
 	            	} else if(player.totalOfHand() > 21 || player.totalOfCroupier() > player.totalOfHand() && player.totalOfCroupier() < 21) {
 	            		handResult(Result.LOST);
 						updateBourseLost(player, bet, players);
+						event.LostTheGame(player.getBourse());
 						event.setTimer(event.getTimer()+1);
 						clear();
 	            		choix = 0;

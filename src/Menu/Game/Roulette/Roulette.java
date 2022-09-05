@@ -8,6 +8,7 @@ import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 import Menu.Game.Game;
+import Menu.Game.BlackJack.Event;
 import Menu.Game.BlackJack.Player;
 import Menu.Game.BlackJack.Players;
 import Menu.Game.BlackJack.UnvalidBet;
@@ -98,6 +99,7 @@ public class Roulette implements Game{
 					System.out.println(e1.getMessage());	
 				}
 			}
+			Event event = new Event(0);
 		int result = launch();
 		System.out.println("\n1 choisir un nombre, 2 pour une couleur N ou R");
 		String input = userInput.nextLine();
@@ -110,11 +112,13 @@ public class Roulette implements Game{
 				afficherResultatNb(result);
 				System.out.println("\nVous avez gagné, le nombre était : " + roulette.get(entree));
 				this.winByNumber(player, bet);
+				event.WinTheGame(player.getBourse());
 
 			}else {
 				afficherResultatNb(result);
 				System.out.println("\nVous avez perdu, le nombre était : " + result);
 				this.lost(player, bet);
+				event.LostTheGame(player.getBourse());
 			}
 			break;
 		}
@@ -132,6 +136,7 @@ public class Roulette implements Game{
 				}
 				System.out.println("\nVous avez gagné, la couleur était : " + roulette.get(result));
 				this.winByColor(player, bet);
+				event.WinTheGame(player.getBourse());
 			}else {
 				afficherResultatCouleur(result);
 				try {
@@ -142,6 +147,7 @@ public class Roulette implements Game{
 				}
 				System.out.println("\nVous avez perdu, la couleur était : " + roulette.get(result));
 				this.lost(player, bet);
+				event.LostTheGame(player.getBourse());
 			}
 			break;
 		}
