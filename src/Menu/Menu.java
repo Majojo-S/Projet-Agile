@@ -129,13 +129,14 @@ public class Menu {
 	}
 
 	private static void titleMenu() {
-		System.out.println(" |  __ \\                 | |  / ____|                    \n" + 
-				" | |__) |___  _   _  __ _| | | |     _ __ ___  _   _ ___ \n" + 
-				" |  _  // _ \\| | | |/ _` | | | |    | '__/ _ \\| | | / __|\n" + 
-				" | | \\ \\ (_) | |_| | (_| | | | |____| | | (_) | |_| \\__ \\\n" + 
-				" |_|  \\_\\___/ \\__, |\\__,_|_|  \\_____|_|  \\___/ \\__,_|___/\n" + 
-				"               __/ |                                     \n" + 
-				"              |___/                                   ");
+		
+		System.out.println("Vous etes un jeune bachelier, le jour de votre rentrée vous n'avez pas reçu votre bourse");
+		System.out.println("Malheuresement cette argent devait servir a soigner votre perroquet");
+		System.out.println("A cause de ce retard, PIOU PIOU il est mort");
+		System.out.println("Du coup vous decidez donc de vous venger de cette organisation maléfique");
+		System.out.println("Votre plan est d'aller au casino avec l'argent du Crous pour acheter un BAZOOKA et détruire les méchants");
+		System.out.println("L'armurier de los santos vous a dit que le bazooka valait 8000 balles");
+		
 		System.out.println(Roulette.ANSI_RED_BG+"░░▒▒▒▒▓▓▒▒▒▒▒▒▒▒░░░░▒▒▓▓██▓▓░░▒▒░░░░▒▒░░░░▓▓░░░░▒▒▒▒▓▓▒▒▒▒▒▒░░░░░░▒▒░░▒▒░░▒▒░░▒▒░░░░▒▒  ▒▒▒▒░░░░▒▒▒▒▒▒░░░░    ▒▒▒▒▒▒  ░░▒▒░░▓▓▓▓▒▒▒▒░░▒▒▒▒░░▒▒██▓▓▓▓▒▒░░░░░░░░▓▓▓▓▓▓▓▓▓▓░░  ▒▒▓▓▓▓░░░░\n" + 
 				"▒▒▒▒▓▓▓▓░░░░░░▒▒▒▒▓▓░░  ▓▓▒▒▒▒░░    ▒▒▒▒▒▒▒▒▒▒░░▒▒░░▒▒▓▓░░▒▒░░░░░░░░▒▒  ▒▒▒▒░░░░░░░░▒▒░░░░░░░░░░            ░░  ▓▓▒▒  ░░▒▒░░▒▒▓▓▒▒  ▒▒▒▒░░░░▒▒▒▒▓▓▓▓▓▓▒▒▒▒▒▒▒▒▓▓▓▓██░░  ▒▒▒▒▒▒▒▒  ░░▒▒\n" + 
 				"▒▒▓▓▓▓▒▒░░░░░░░░░░▓▓▓▓▓▓░░░░░░░░    ░░▒▒▒▒▒▒▒▒▒▒░░░░▓▓▓▓▓▓▒▒░░░░░░░░░░░░▒▒▒▒░░░░░░▒▒▒▒▒▒  ▒▒░░░░            ░░░░▒▒▒▒░░▒▒░░▓▓▓▓▓▓  ▒▒▒▒░░░░░░░░▒▒▓▓▓▓██▓▓▒▒▒▒▒▒▒▒░░  ░░▓▓▓▓░░░░▒▒▒▒░░░░\n" + 
@@ -198,6 +199,7 @@ public class Menu {
 				"░░▒▒░░░░░░  ▓▓▓▓▒▒░░░░░░░░░░▓▓▓▓░░▒▒░░▓▓▓▓▓▓▒▒▒▒▒▒░░░░░░▒▒░░▒▒▓▓▓▓░░░░▒▒░░░░░░░░░░▒▒▒▒░░░░░░  ░░▒▒░░▓▓  ░░▒▒▓▓▓▓░░░░▒▒░░▓▓▓▓▓▓██▓▓▒▒▒▒░░░░  ░░▒▒▒▒▒▒▒▒░░░░░░▓▓▒▒▒▒░░  ▓▓▒▒░░░░  ░░  ░░\n" + 
 				"░░  ▒▒░░░░  ▒▒▒▒▓▓░░░░░░░░▓▓▓▓░░░░░░░░▓▓▒▒▓▓▓▓░░░░░░▒▒░░░░░░░░░░▒▒▒▒░░░░    ░░▒▒▒▒▒▒▒▒░░░░░░░░░░▒▒░░▒▒▒▒░░▓▓▒▒▓▓░░░░░░▓▓▓▓▓▓██▓▓░░▒▒░░░░  ░░  ░░░░░░▒▒▒▒  ░░░░▒▒      ░░▒▒▓▓      ░░  \n" + 
 				""+Roulette.ANSI_RESET);
+		System.out.println();
 	}
 
 	private static void playMenu() throws IOException, InterruptedException{
