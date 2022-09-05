@@ -13,6 +13,8 @@ public class RoyalCrous {
 		Scanner scanner = new Scanner(System.in);
         System.out.println("Vous avez " + player.getBourse() + "jetons");
         
+        Event event = new Event(0);
+        
         System.out.println("Combien de paquet ? :");
         int nb = scanner.nextInt();
         
@@ -38,21 +40,16 @@ public class RoyalCrous {
 	    	System.out.println("1 pour piocher et 2 pour rester, -1 pour quitter");
 	    	choix = scanner.nextInt();
 	        while(choix != 0) {
-	        	if(choix == -1) {
+	        	if(choix == 0) {
 	        		choix = 0;
-	        		fin = true;
 	        		break;
-	        	} else if(choix == 0) {
-	        		handResult(Result.LOST);
-					updateBourseLost(player, bet, players);
-	        		choix = 0;
-	        		clear();
 	        	} else if(choix == 1 && player.totalOfHand() < 21){
 	        		player.hand.add(jeu.PickCard());
 	            	System.out.println("Votre main est : " + player.hand + "total : " + player.totalOfHand());
 	            	if(player.totalOfHand() > 21) {
 	            		handResult(Result.LOST);
 						updateBourseLost(player, bet, players);
+						event.setTimer(event.getTimer()+1);
 	            		choix = 0;
 	            		TimeUnit.SECONDS.sleep(3);
 	            		clear();
@@ -68,17 +65,20 @@ public class RoyalCrous {
 	        		if (player.totalOfCroupier() < player.totalOfHand() || player.totalOfCroupier() > 21) {
 	        			handResult(Result.WIN);
 						updateBourseWin(player, bet, players);
+						event.setTimer(event.getTimer()+1);						
 						clear();
 	            		choix = 0;
 	            		TimeUnit.SECONDS.sleep(3);
 	            	} else if(player.totalOfHand() > 21 || player.totalOfCroupier() > player.totalOfHand() && player.totalOfCroupier() < 21) {
 	            		handResult(Result.WIN);
 						updateBourseWin(player, bet, players);
+						event.setTimer(event.getTimer()+1);
 						clear();
 	            		choix = 0;
 	            		TimeUnit.SECONDS.sleep(3);
 	            	} else if(player.totalOfCroupier() == player.totalOfHand()) {
 	            		handResult(Result.DRAW);
+	            		event.setTimer(event.getTimer()+1);
 	            		choix = 0;
 	            		clear();
 	            		TimeUnit.SECONDS.sleep(3);
