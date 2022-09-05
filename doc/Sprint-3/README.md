@@ -3,7 +3,7 @@
 ## Démo + Planification du sprint suivant
 
 ### Ce que nous avons fait durant ce sprint
-le joueur peut maintenant jouer contre contre l'ordinateur et il peux gagner ou perdre mais pas encore de nul 
+le joueur peut maintenant joué contre contre l'ordinateur et il peux gagner ou perdre mais pas encore de nul 
 le joueur peut maintenant choisir sa mise de départ
 le solde de départ va etre attribué aleatoirement
 ### Ce que nous allons faire durant le prochain sprint
@@ -25,7 +25,7 @@ oui notre demo etait operationnel
 ## +
     Nous avons etait efficace,
     Notre jeu a prit de la valeur
-    Le travail d'equipe ce passe bien
+    Le travail d'equipe se passe bien
     Bonne communication
 ## - 
     maitrise de git

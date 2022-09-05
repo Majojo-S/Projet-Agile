@@ -5,7 +5,7 @@
 ### Ce que nous avons fait durant ce sprint
 on peut avoir une égalité et visionner le classement des joueurs dans le menu.
 On peut reprendre la sauvegarde du joueur.
-Une roulette peut apparêtre.
+Un jeu de roulette est accessible mais pas jouable.
 
 ### Ce que nous allons faire durant le prochain sprint
 le joueur peut lancer une roulette  via le menu de depart
@@ -25,7 +25,7 @@ oui notre demo était operationnel
 ## +
     Nous avons etait efficace,
     Notre jeu a prit de la valeur
-    Le travail d'equipe ce passe bien
+    Le travail d'equipe se passe bien
     Bonne communication
 ## - 
     maitrise de git
