@@ -1,4 +1,5 @@
 theo 1000
+<<<<<<< HEAD
 huukuhk 600
 rgdgrdg 600
 thhtfh 500
@@ -9,3 +10,6 @@ lplpmm 300
 gyjgyj 200
 jiojoijo 100
 ygjjgyjg 100
+renan 100
+r 100
+p 600

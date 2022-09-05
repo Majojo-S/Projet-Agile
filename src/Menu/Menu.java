@@ -9,6 +9,7 @@ import java.util.Random;
 import java.util.Scanner;
 import BlackJack.Player;
 import BlackJack.Players;
+import BlackJack.Roulette;
 import BlackJack.RoyalCrous;
 
 
@@ -54,9 +55,10 @@ public class Menu {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-
 				break;
-			}case "2":{
+			}	
+			
+			case "2":{
 				exitMenu();
 				exit = true;
 				break;
@@ -103,6 +105,8 @@ public class Menu {
 
 			System.out.print("╔━╤━━━━━━━━━━━━╗\n"
 					+"┃1┃ BlackJack  ┃\n"
+					+"╠═╬════════════╣\n"
+					+"┃2┃ Roulette   ┃\n"
 					+"╠═╬════════════╣\n"
 					+"┃2┃ Back       ┃\n"
 					+"╚═╧════════════╝\n"
@@ -239,9 +243,9 @@ public class Menu {
 
 	private static void play( ) throws InterruptedException {
 		LoadingMenu();
-
-
+		
 	}
+	
 	private static void play(String choix ) throws InterruptedException {
 		switch (choix) {
 		case "1":
@@ -250,6 +254,12 @@ public class Menu {
 			RoyalCrous.main(args);
 			players.updateTxt();
 
+			LoadingMenu();
+			break;
+		case "2":
+			clear();
+			Roulette roulette = new Roulette();
+			roulette.start();
 			LoadingMenu();
 			break;
 		default:
