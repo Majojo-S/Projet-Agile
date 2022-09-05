@@ -25,6 +25,7 @@ public class RoyalCrous implements Game {
         while(fin != true) {
         	Packet jeu = new Packet(nb);
         	System.out.println("Début du jeu ! ");
+        	System.out.println("Vous avez " + player.getBourse() + "jetons");
         	int bet = 0;
         	boolean correct = false;
         	while(!correct) {
@@ -115,9 +116,9 @@ public class RoyalCrous implements Game {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
-	            	} else if(player.totalOfHand() > 21 || player.totalOfCroupier() > player.totalOfHand() && player.totalOfCroupier() <= 21) {
-	            		handResult(Result.WIN);
-						updateBourseWin(player, bet, players);
+	            	} else if(player.totalOfHand() > 21 || player.totalOfCroupier() > player.totalOfHand() && player.totalOfCroupier() < 21) {
+	            		handResult(Result.LOST);
+						updateBourseLost(player, bet, players);
 						event.setTimer(event.getTimer()+1);
 						clear();
 	            		choix = 0;
@@ -144,8 +145,8 @@ public class RoyalCrous implements Game {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
-
 	            	}
+	            
 	        	}
 	        }
         }
