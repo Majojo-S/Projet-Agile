@@ -35,8 +35,18 @@ public class RoyalCrous {
         	player.hand.add(jeu.PickCard());
 	    	player.hand.add(jeu.PickCard());
 	    	player.croupier.add(jeu.PickCard());
-	    	System.out.println("Votre main est : " + player.hand + "total : " + player.totalOfHand() + "\n");
-	    	System.out.println("La carte du croupier est : " + player.croupier + "total : "+ player.totalOfCroupier()+ "\n");
+
+			System.out.println("Votre main :");
+
+			afficherMainPlayer(player);
+
+	    	System.out.println("Votre total : " + player.totalOfHand() + "\n");
+	    	System.out.println("Main du croupier : ");
+
+			afficherMainCroupier(player);
+
+			System.out.println("Total du croupier : "+ player.totalOfCroupier()+ "\n");
+
 	    	if(player.totalOfHand() == 21) {
 	    		System.out.println("BLACKJACK ! Vous remportez cette partie !");
 	    		choix = 0;
@@ -51,7 +61,9 @@ public class RoyalCrous {
 	        		fin = true;
 	        	} else if(choix == 1 && player.totalOfHand() < 21){
 	        		player.hand.add(jeu.PickCard());
-	            	System.out.println("Votre main est : " + player.hand + "total : " + player.totalOfHand());
+	            	System.out.println("Votre main : ");
+					afficherMainPlayer(player);
+					System.out.println("Total : " + player.totalOfHand());
 	            	if(player.totalOfHand() > 21) {
 	            		handResult(Result.LOST);
 						updateBourseLost(player, bet);
@@ -64,7 +76,9 @@ public class RoyalCrous {
 	        	} else if (choix == 2) {
 	        		while(player.totalOfCroupier() < 17) {
 	        			player.croupier.add(jeu.PickCard());
-	        			System.out.println("Les cartes du croupier est : " + player.croupier + "total : "+ player.totalOfCroupier()+ "\n");
+	        			System.out.println("Main du croupier : " );
+						afficherMainCroupier(player);
+						System.out.println("Total du croupier : "+ player.totalOfCroupier()+ "\n");
 	        		}
 	        		if (player.totalOfCroupier() < player.totalOfHand() || player.totalOfCroupier() > 21) {
 	        			handResult(Result.WIN);
@@ -88,6 +102,19 @@ public class RoyalCrous {
 	        
         scanner.close();
     }
+
+	private static void afficherMainCroupier(Player player){
+		for(Card c : player.croupier){
+			System.out.println(c.afficherNumber(c.getRank()) + c.afficherSymbole(c.getColor()));
+		}
+	}
+
+	private static void afficherMainPlayer(Player player){
+		for(Card c : player.hand){
+			System.out.println(c.afficherNumber(c.getRank()) + c.afficherSymbole(c.getColor()));
+		}
+	}
+	
 
     private static void clear(){
 		for (int i = 0; i < 14; i++) {

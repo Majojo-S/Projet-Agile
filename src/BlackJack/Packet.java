@@ -11,7 +11,7 @@ import java.util.Random;
 	
 		public Packet(int nb) {
 			for(int i = 0; i < 4; i++) {
-				for(int j = 1; j < 11; j++) {
+				for(int j = 0; j < 13; j++) {
 					for(int nbpack = 0; nbpack < nb; nbpack ++) {
 						packet.add(new Card(Rank.values()[j],Color.values()[i]));
 					}
@@ -27,7 +27,7 @@ import java.util.Random;
 		
 		public Card PickCard() {
 			Random rand = new Random();
-			int pioche = rand.nextInt(packet.size()+1);
+			int pioche = rand.nextInt(packet.size()) + 1;
 			return packet.get(pioche);
 		}
 		
