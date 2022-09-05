@@ -136,13 +136,13 @@ public class Menu {
 		System.out.println("Malheuresement cette argent devait servir a soigner votre perroquet");
 		TimeUnit.SECONDS.sleep(3);
 		System.out.println("A cause de ce retard, PIOU PIOU il est mort");
-		TimeUnit.SECONDS.sleep(4);
+		TimeUnit.SECONDS.sleep(5);
 		System.out.println("Du coup vous decidez donc de vous venger de cette organisation maléfique");
 		TimeUnit.SECONDS.sleep(3);
 		System.out.println("Votre plan est d'aller au casino avec l'argent du Crous pour acheter un BAZOOKA et détruire les méchants");
 		TimeUnit.SECONDS.sleep(3);
 		System.out.println("L'armurier de los santos vous a dit que le bazooka valait 8000 balles");
-		TimeUnit.SECONDS.sleep(4);
+		TimeUnit.SECONDS.sleep(6);
 		
 		System.out.println(Roulette.ANSI_RED_BG+"░░▒▒▒▒▓▓▒▒▒▒▒▒▒▒░░░░▒▒▓▓██▓▓░░▒▒░░░░▒▒░░░░▓▓░░░░▒▒▒▒▓▓▒▒▒▒▒▒░░░░░░▒▒░░▒▒░░▒▒░░▒▒░░░░▒▒  ▒▒▒▒░░░░▒▒▒▒▒▒░░░░    ▒▒▒▒▒▒  ░░▒▒░░▓▓▓▓▒▒▒▒░░▒▒▒▒░░▒▒██▓▓▓▓▒▒░░░░░░░░▓▓▓▓▓▓▓▓▓▓░░  ▒▒▓▓▓▓░░░░\n" + 
 				"▒▒▒▒▓▓▓▓░░░░░░▒▒▒▒▓▓░░  ▓▓▒▒▒▒░░    ▒▒▒▒▒▒▒▒▒▒░░▒▒░░▒▒▓▓░░▒▒░░░░░░░░▒▒  ▒▒▒▒░░░░░░░░▒▒░░░░░░░░░░            ░░  ▓▓▒▒  ░░▒▒░░▒▒▓▓▒▒  ▒▒▒▒░░░░▒▒▒▒▓▓▓▓▓▓▒▒▒▒▒▒▒▒▓▓▓▓██░░  ▒▒▒▒▒▒▒▒  ░░▒▒\n" + 

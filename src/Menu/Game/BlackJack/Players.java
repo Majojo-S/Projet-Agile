@@ -14,7 +14,7 @@ public class Players {
 	private List<Player> players;//
 	
 	//File f=new File("./Players.txt");
-	File f = new File("./src/Menu/Players.txt");
+	File f = new File("./Players.txt");
 	
 
 	public Players() {
