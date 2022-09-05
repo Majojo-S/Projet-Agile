@@ -47,7 +47,9 @@ public class RoyalCrous {
 	    	choix = scanner.nextInt();
 	        while(choix != 0) {
 	        	if(choix == -1) {
-	        		
+	        		choix = 0;
+	        		fin = true;
+	        		break;
 	        	} else if(choix == 0) {
 	        		handResult(Result.LOST);
 					updateBourseLost(player, bet);
