@@ -91,7 +91,7 @@ public class Players {
 		return players;
 	}
 
-	public void loadPlayers() throws IOException { //Ajoute les profils du fichier.txt à l'ArrayList profils
+	public void loadPlayers() throws IOException { //Ajoute les profils du fichier.txt à l'ArrayList players
 		BufferedReader lecteurAvecBuffer = null;
 		String ligne;
 		int cpt=0;
@@ -138,8 +138,8 @@ public class Players {
 		 }
 		try (FileWriter fw=new FileWriter(this.f)){
 			StringBuilder sb=new StringBuilder();
-			for(Player prof:players) {
-				sb.append(prof.getName()+" "+prof.getBourse()+"\n");
+			for(Player player:players) {
+				sb.append(player.getName()+" "+player.getBourse()+"\n");
 			}
 
 			fw.write(sb.toString());
@@ -157,15 +157,6 @@ public class Players {
 		return "Players [players=" + players +"]";
 	}
 	
-	/*public int searchIdx(String name) {
-		int idx =-1;
-		for(Player p : players) {
-			if(p.name.equals(name)) {
-				idx = players.indexOf(p);
-			}
-		}
-		return idx;
-	}*/
 	
 	
 	

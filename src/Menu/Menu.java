@@ -164,10 +164,6 @@ public class Menu {
 				while(!players.addPlayer(p1)) {
 					nom= userInput.nextLine();
 				}
-				System.out.println(players);
-				System.out.println(nom);
-
-				
 
 				play();
 				exit = false;
