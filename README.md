@@ -12,4 +12,4 @@
 ### Description
 
 Bienvenue au Royal Crous, Le casino des boursiers.
-Venez jouer au Blackjack et à la roulette pour peut-être doubler votre bourse. 
+Venez jouer au BlackJack et à la roulette pour peut-être doubler votre bourse. 
