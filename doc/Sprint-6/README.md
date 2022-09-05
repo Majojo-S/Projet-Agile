@@ -8,6 +8,7 @@ Création du timer (compteur de tour).
 
 ### Ce que nous allons faire durant le prochain sprint
 Implementé des évenements durant le jeu.
+Finir l'ascii de la roulette.
 Ajustement du code
 
 ## Rétrospective
