@@ -229,6 +229,7 @@ public class Menu {
 					System.out.println("Votre nom est déjà pris veuillez en choisir un autre.");
 					nom= userInput.nextLine();
 				}
+				
 				if(secretPlayer.contains(nom)) {
 					p1 = new SecretPlayer(nom);
 				}else {

@@ -66,6 +66,8 @@ public class Event {
 		} else if(rte.equals(RandomTypeEvent.ABSENT)) {
 			p.setBourse(p.getBourse() - 150);
 			System.out.println("Le CROUS n'est pas contend la, vous avez était trop absent en cour récemment ils vous enlèvent donc 150 crédits (plutôt que vous enlevez votre bourse) \\n");
+		} else {
+			System.out.println("Bah non y'a rien");
 		}
 	}
 	
@@ -90,7 +92,7 @@ public class Event {
 		} else if(rand.nextInt(10) == 8) {
 			return RandomTypeEvent.ECHELON;
 		}else {
-			return null;
+			return RandomTypeEvent.RIEN;
 		}
 		
 	}
