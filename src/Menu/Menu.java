@@ -401,14 +401,21 @@ public class Menu {
 
 		p1.setEchelon(echelon);
 		p1.setBourse(bourse);
-		System.out.println(p1);
+		
 		
 		System.out.println("\nLe crous vous a attribué l'échelon " + echelon + " \nVotre bourse s'élève à " + bourse);  
 	}
 
 	private static void initSecretPlayer(){
 		List<String> list = new ArrayList<String>();
-		list.add("test");
+		list.add("Titouan");
+		list.add("Law");
+		list.add("Jessy");
+		list.add("Mounir");
+		list.add("Théo");
+		list.add("Hocine");
+		list.add("Marine");
+		list.add("Renan");
 		secretPlayer = list;
 	}
 }
