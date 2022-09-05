@@ -43,12 +43,12 @@ public class Event {
 		System.out.println("C'est l'heure de l'évenement mystère !! \\n");
 		if(rte.equals(RandomTypeEvent.PH)) {
 			p.setBourse(p.getBourse() + rand.nextInt((max - min)+1)-min);
-			System.out.println("Vous recevez un virement de vos parents !" + (rand.nextInt((max - min)+1)-min) + "de crédits ps: remerciez les quand même \\n");
+			System.out.println("Vous recevez un virement de vos parents !" + rand.nextInt((max - min)+1) + "de crédits ps: remerciez les quand même \\n");
 		} else if(rte.equals(RandomTypeEvent.WORK)) {
 			System.out.println("Pour votre bon service, le CROUS vous octroie un salaire pour le travail réalisé ! + 150 crédits \\n");
 		} else if(rte.equals(RandomTypeEvent.SUP)) {
 			p.setBourse(p.getBourse() + rand.nextInt((max - min)+1)-min);
-			System.out.println("C'est votre jour de chance !!! Le CROUS vous à selectionez pour vous attribuez un supplément de bourse !! + " + (rand.nextInt((max - min)+1)-min) + "de solde pour vous ! \\n");
+			System.out.println("C'est votre jour de chance !!! Le CROUS vous à selectionez pour vous attribuez un supplément de bourse !! + " + rand.nextInt((max - min)+1) + "de solde pour vous ! \\n");
 		} else if(rte.equals(RandomTypeEvent.LUNCH)) {
 			p.setBourse(p.getBourse() - 50);
 			System.out.println("Les repas du CROUS vous ont était facturé... -50 crédits");

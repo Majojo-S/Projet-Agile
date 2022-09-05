@@ -10,6 +10,7 @@ R 400
 ddddd 300
 dsq 100
 3 90
+<<<<<<< HEAD
 REEE 400
 RRRRR 500
 uezbhikezrd 600
@@ -23,3 +24,7 @@ EFFEZ 100
 ERFRE 600
 jujj 600
 nrgngr 500
+=======
+test 1000
+mmm 300
+>>>>>>> b6fd3797e60f0ac30be38758131c5fed71fe1380
