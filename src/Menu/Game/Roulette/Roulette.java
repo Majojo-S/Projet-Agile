@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 import Menu.Game.Game;
 import Menu.Game.BlackJack.Player;
@@ -19,8 +20,10 @@ public class Roulette implements Game{
 
 	//Couleurs
 	public static final String ANSI_RESET = "\u001B[0m";
-	public static final String ANSI_BLACK_BG = "\u001B[40m";
+	//public static final String ANSI_BLACK_BG = "\u001B[40m";
+	public static final String ANSI_BLACK_BG = "\033[47m"; // WHITE (pour black)
 	public static final String ANSI_RED_BG = "\u001B[41m";
+	public static final String ANSI_GREEN_BG = "\033[42m";
 
 	private static Scanner userInput = new Scanner(System.in);
 
@@ -73,9 +76,16 @@ public class Roulette implements Game{
 	}
 
 	public void start(Player player , Players players) {
+
+		//Affichage roulette 
 		System.out.println("\nRoulette");
 		remplir();
 		afficherRoulette();
+		System.out.println("\nVous avez " + player.getBourse() + "jetons");
+
+		//Mise
+		Scanner scanner = new Scanner(System.in);
+		int bet = player.bet(scanner);
 		int result = launch();
 		System.out.println("\n1 choisir un nombre, 2 pour une couleur N ou R");
 		String input = userInput.nextLine();
@@ -85,9 +95,14 @@ public class Roulette implements Game{
 			input = userInput.nextLine();
 			int entree = Integer.valueOf(input);
 			if(resultatnombre(result, entree)){
-				System.out.println("Vous avez gagné, le nombre était : " + result);
+				afficherResultatNb(result);
+				System.out.println("\nVous avez gagné, le nombre était : " + roulette.get(entree));
+				this.winByNumber(player, bet);
+
 			}else {
-				System.out.println("Vous avez perdu, le nombre était : " + result);
+				afficherResultatNb(result);
+				System.out.println("\nVous avez perdu, le nombre était : " + result);
+				this.lost(player, bet);
 			}
 			break;
 		}
@@ -96,9 +111,25 @@ public class Roulette implements Game{
 			input = userInput.nextLine();
 			String entree = input;
 			if(resultatcouleur(roulette.get(result), entree)){
-				System.out.println("Vous avez gagné, la couleur était : " + roulette.get(result));
+				afficherResultatCouleur(result);
+				try {
+					TimeUnit.SECONDS.sleep(2);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				System.out.println("\nVous avez gagné, la couleur était : " + roulette.get(result));
+				this.winByColor(player, bet);
 			}else {
-				System.out.println("Vous avez perdu, la couleur était : " + roulette.get(result));
+				afficherResultatCouleur(result);
+				try {
+					TimeUnit.SECONDS.sleep(2);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				System.out.println("\nVous avez perdu, la couleur était : " + roulette.get(result));
+				this.lost(player, bet);
 			}
 			break;
 		}
@@ -120,10 +151,108 @@ public class Roulette implements Game{
 		return color.equals(entree);
 	}
 
+	private void winByNumber(Player player, int bet){
+		player.setBourse(player.getBourse() + bet * 36);
+		System.out.println("`nVotre solde : " + player.getBourse());
+	}
+
+	private void winByColor(Player player, int bet){
+		player.setBourse(player.getBourse() + bet);
+		System.out.println("`nVotre solde : " + player.getBourse());
+	}
+
+	private void lost(Player player , int bet){
+		player.setBourse(player.getBourse() - bet);
+		System.out.println("`nVotre solde : " + player.getBourse());
+	}
+
+	private void afficherResultatCouleur(int result){
+		Random random = new Random();
+		int nb = random.nextInt(6) + 4 ;
+		for(int i = 0 ; i < nb ; i++){
+			int alea = random.nextInt(2);
+			if(alea == 0){
+				System.out.print(ANSI_BLACK_BG + " " + ANSI_RESET + "  ");
+				try {
+					TimeUnit.SECONDS.sleep(1);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}else{
+				System.out.print(ANSI_RED_BG + " " + ANSI_RESET + "  ");
+				try {
+					TimeUnit.SECONDS.sleep(1);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+
+		try {
+			TimeUnit.SECONDS.sleep(1);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(getColor(result).equals("N")){
+			System.out.print("  " + ANSI_BLACK_BG + " " + ANSI_RESET);
+		}else{
+			System.out.print("  " + ANSI_RED_BG + " " + ANSI_RESET);
+		}
+
+	}
+
+	private void afficherResultatNb(int result){
+		Random random = new Random();
+		int nb = random.nextInt(6) + 4 ;
+		for(int i = 0 ; i < nb ; i++){
+			int alea = random.nextInt(37);
+			if(alea == 0){
+				System.out.print(" " + ANSI_GREEN_BG + alea + " " + ANSI_RESET);
+			}
+			if(alea % 2 == 0 && alea != 0){
+				if(alea < 10){
+					System.out.print(" " + ANSI_BLACK_BG + alea + " " + ANSI_RESET);
+				}else{
+					System.out.print(" " + ANSI_BLACK_BG + alea + ANSI_RESET);
+				}
+			}else{
+				if(alea < 10){
+					System.out.print(" " + ANSI_BLACK_BG + alea + " " + ANSI_RESET);
+				}else{
+				System.out.print(" " + ANSI_RED_BG + alea + ANSI_RESET);
+				}
+			}
+				try {
+					TimeUnit.SECONDS.sleep(1);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			if(result == 0){
+				System.out.print("  " + ANSI_GREEN_BG + result + ANSI_RESET);
+			}
+			if(result%2 == 0 && result != 0){
+				System.out.print("  " + ANSI_BLACK_BG + result + ANSI_RESET);
+			}else{
+				System.out.print("  " + ANSI_RED_BG + result + ANSI_RESET);
+			}
+		}
+	
+	
+
 	public static void main(String[] args) {
 		Roulette r = new Roulette();
 		r.remplir();
 		r.afficherRoulette();
+
+		Player p = new Player("r");
+		Players players = new Players();
+
+		r.start(p, players);
 		
 	}
 }

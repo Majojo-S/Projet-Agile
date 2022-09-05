@@ -8,7 +8,8 @@ public class Card {
 
 	// Couleurs dans terminal
 	public static final String ANSI_RESET = "\u001B[0m";
-    public static final String ANSI_BLACK_BG = "\u001B[40m";
+    //public static final String ANSI_BLACK_BG = "\u001B[40m";
+	public static final String ANSI_BLACK_BG = "\033[47m"; //WHITE
     public static final String ANSI_RED_BG = "\u001B[41m";
 	
 	Card(Rank rank, Color color) {
