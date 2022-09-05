@@ -56,8 +56,12 @@ public class RoyalCrous implements Game {
 
 	    	if(player.totalOfHand() == 21) {
 	    		System.out.println("BLACKJACK ! Vous remportez cette partie !");
+	    		updateBourseWin(player, bet, players);
 	    		choix = 0;
 	    	}
+	    	
+	    	
+	    	
 	    	System.out.println("1 pour piocher et 2 pour rester, -1 pour quitter");
 	    	choix = scanner.nextInt();
 	        while(choix != 0) {
