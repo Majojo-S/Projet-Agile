@@ -7,6 +7,7 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
+import Menu.Menu;
 import Menu.Game.Game;
 
 public class RoyalCrous implements Game {
@@ -67,6 +68,17 @@ public class RoyalCrous implements Game {
 	    	System.out.println("1 pour piocher et 2 pour rester, -1 pour quitter");
 	    	choix = scanner.nextInt();
 	        while(choix != 0) {
+	        	if(choix == -1) {
+	        		try {
+						Menu.LoadingMenu();
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+	        	}
 	        	if(choix == 0) {
 	        		choix = 0;
 	        		break;

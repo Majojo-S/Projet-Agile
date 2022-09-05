@@ -85,7 +85,7 @@ public class Menu {
 		}
 	}
 
-	private static void LoadingMenu() throws InterruptedException, IOException {
+	public static void LoadingMenu() throws InterruptedException, IOException {
 		System.out.println("Loading game...");
 		try {
 			Thread.sleep(2000);
@@ -112,11 +112,15 @@ public class Menu {
 					+"╠═╬════════════╣\n"
 					+"┃2┃ Roulette   ┃\n"
 					+"╠═╬════════════╣\n"
-					+"┃2┃ Back       ┃\n"
+					+"┃3┃ Back       ┃\n"
 					+"╚═╧════════════╝\n"
 					+"               \n"
 					+"Faites un choix : ");
+			
 			input = userInput.nextLine();
+			if(Integer.valueOf(input) == 3 ) {
+				playMenu();
+			}
 			play(input);
 			exit=true;
 
