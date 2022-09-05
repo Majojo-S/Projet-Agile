@@ -18,7 +18,7 @@ Git a encore posé probleme et ce n'est pas fini
 * Avez-vous terminé tout ce que vous vous étiez engagé à faire ?
 Oui l'objectif etait atteint nous avons meme fait plus que prevu 
 * Étiez -vous prêts au moment de la démo ?
-oui notre demo etait operationnel  
+oui notre demo était operationnel  
 * ...
 
 ### PDCA

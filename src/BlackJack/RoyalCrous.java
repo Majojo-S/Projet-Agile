@@ -1,5 +1,6 @@
 package BlackJack;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -8,15 +9,8 @@ import java.util.concurrent.TimeUnit;
 
 public class RoyalCrous {
 
-	
-	
-	public static void main(Player[] args) throws InterruptedException {
-     
-        Scanner scanner = new Scanner(System.in);
-
- 
-        Player player = args[0];
-
+	public static void start(Player player, Players players) throws InterruptedException, IOException{
+		Scanner scanner = new Scanner(System.in);
         System.out.println("Vous avez " + player.getBourse() + "jetons");
         
         System.out.println("Combien de paquet ? :");
@@ -27,7 +21,7 @@ public class RoyalCrous {
         while(fin != true) {
         	Packet jeu = new Packet(nb);
         	System.out.println("Début du jeu ! ");
-			int bet = player.bet(scanner);
+        	int bet = player.bet(scanner);
         	System.out.println("Vous avez misé : " + bet + " crédits");
         	clear();
         	player.hand.clear();
@@ -51,14 +45,18 @@ public class RoyalCrous {
 	    		System.out.println("BLACKJACK ! Vous remportez cette partie !");
 	    		choix = 0;
 	    	}
-	    	System.out.println("1 pour piocher et 2 pour rester");
+	    	System.out.println("1 pour piocher et 2 pour rester, -1 pour quitter");
 	    	choix = scanner.nextInt();
 	        while(choix != 0) {
-	        	if(choix == 0) {
-	        		handResult(Result.LOST);
-					updateBourseLost(player, bet);
+	        	if(choix == -1) {
 	        		choix = 0;
 	        		fin = true;
+	        		break;
+	        	} else if(choix == 0) {
+	        		handResult(Result.LOST);
+					updateBourseLost(player, bet, players);
+	        		choix = 0;
+	        		clear();
 	        	} else if(choix == 1 && player.totalOfHand() < 21){
 	        		player.hand.add(jeu.PickCard());
 	            	System.out.println("Votre main : ");
@@ -66,9 +64,10 @@ public class RoyalCrous {
 					System.out.println("Total : " + player.totalOfHand());
 	            	if(player.totalOfHand() > 21) {
 	            		handResult(Result.LOST);
-						updateBourseLost(player, bet);
+						updateBourseLost(player, bet, players);
 	            		choix = 0;
 	            		TimeUnit.SECONDS.sleep(3);
+	            		clear();
 	            	} else {
 	            		System.out.println("1 pour piocher et 2 pour rester");
 	                	choix = scanner.nextInt();
@@ -82,17 +81,20 @@ public class RoyalCrous {
 	        		}
 	        		if (player.totalOfCroupier() < player.totalOfHand() || player.totalOfCroupier() > 21) {
 	        			handResult(Result.WIN);
-						updateBourseWin(player, bet);
+						updateBourseWin(player, bet, players);
+						clear();
 	            		choix = 0;
 	            		TimeUnit.SECONDS.sleep(3);
 	            	} else if(player.totalOfHand() > 21 || player.totalOfCroupier() > player.totalOfHand() && player.totalOfCroupier() < 21) {
 	            		handResult(Result.WIN);
-						updateBourseWin(player, bet);
+						updateBourseWin(player, bet, players);
+						clear();
 	            		choix = 0;
 	            		TimeUnit.SECONDS.sleep(3);
 	            	} else if(player.totalOfCroupier() == player.totalOfHand()) {
 	            		handResult(Result.DRAW);
 	            		choix = 0;
+	            		clear();
 	            		TimeUnit.SECONDS.sleep(3);
 
 	            	}
@@ -132,15 +134,17 @@ public class RoyalCrous {
     	}
     }
 
-	private static void updateBourseWin(Player player, int coins){
+	private static void updateBourseWin(Player player, int coins, Players players){
 		System.out.println("Vous avez gagné " + coins + " crédits");
 		player.setBourse(player.getBourse() + coins);
+		players.majProfil(player);
 		System.out.println("Il vous reste " + player.getBourse() + "crédits");
 	}
 
-	private static void updateBourseLost(Player player, int coins){
+	private static void updateBourseLost(Player player, int coins, Players players){
 		System.out.println("Vous avez perdu " + coins + " crédits");
 		player.setBourse(player.getBourse() - coins);
+		players.majProfil(player);
 		System.out.println("Il vous reste " + player.getBourse() + "crédits");
 	}
 

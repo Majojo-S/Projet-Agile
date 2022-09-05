@@ -81,7 +81,7 @@ public class Menu {
 		}
 	}
 
-	private static void LoadingMenu() throws InterruptedException {
+	private static void LoadingMenu() throws InterruptedException, IOException {
 		System.out.println("Loading game...");
 		try {
 			Thread.sleep(2000);
@@ -152,7 +152,7 @@ public class Menu {
 			switch (input) {
 			case "1":
 
-				System.err.println(" Bienvenue dans Royal Crous \n"
+				System.err.println("Bienvenue dans Royal Crous \n"
 						+ "Quelle est ton prénom ?  ");
 
 				String nom= userInput.nextLine();
@@ -163,8 +163,8 @@ public class Menu {
 				
 				while(!players.addPlayer(p1)) {
 					nom= userInput.nextLine();
-
 				}
+				System.out.println(players);
 				System.out.println(nom);
 
 				
@@ -217,12 +217,6 @@ public class Menu {
 
 
 
-	/*@SuppressWarnings("unused")
-	private static String askName(String string) {
-		System.out.print(string+" enter your name : ");
-		return userInput.nextLine();
-	}*/
-
 	private static void mainMenu() {
 		System.out.print("    ╔━╤━━━━━━━━━━━╗\n"
 				+"    ┃1┃ Play      ┃\n"
@@ -241,19 +235,17 @@ public class Menu {
 
 
 
-	private static void play( ) throws InterruptedException {
+	private static void play( ) throws InterruptedException, IOException {
 		LoadingMenu();
 		
 	}
 	
-	private static void play(String choix ) throws InterruptedException {
+	private static void play(String choix ) throws InterruptedException, IOException {
 		switch (choix) {
 		case "1":
 			clear();
-			Player[] args = {p1};
-			RoyalCrous.main(args);
+			RoyalCrous.start(p1, players);
 			players.updateTxt();
-
 			LoadingMenu();
 			break;
 		case "2":
