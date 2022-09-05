@@ -52,10 +52,7 @@ public class RoyalCrous {
 	        		handResult(Result.LOST);
 					updateBourseLost(player, bet);
 	        		choix = 0;
-
-	        		fin = true;
-	        		choix = 0;
-	        		break;
+	        		clear();
 	        	} else if(choix == 1 && player.totalOfHand() < 21){
 	        		player.hand.add(jeu.PickCard());
 	            	System.out.println("Votre main est : " + player.hand + "total : " + player.totalOfHand());
@@ -64,6 +61,7 @@ public class RoyalCrous {
 						updateBourseLost(player, bet);
 	            		choix = 0;
 	            		TimeUnit.SECONDS.sleep(3);
+	            		clear();
 	            	} else {
 	            		System.out.println("1 pour piocher et 2 pour rester");
 	                	choix = scanner.nextInt();
@@ -76,16 +74,19 @@ public class RoyalCrous {
 	        		if (player.totalOfCroupier() < player.totalOfHand() || player.totalOfCroupier() > 21) {
 	        			handResult(Result.WIN);
 						updateBourseWin(player, bet);
+						clear();
 	            		choix = 0;
 	            		TimeUnit.SECONDS.sleep(3);
 	            	} else if(player.totalOfHand() > 21 || player.totalOfCroupier() > player.totalOfHand() && player.totalOfCroupier() < 21) {
 	            		handResult(Result.WIN);
 						updateBourseWin(player, bet);
+						clear();
 	            		choix = 0;
 	            		TimeUnit.SECONDS.sleep(3);
 	            	} else if(player.totalOfCroupier() == player.totalOfHand()) {
 	            		handResult(Result.DRAW);
 	            		choix = 0;
+	            		clear();
 	            		TimeUnit.SECONDS.sleep(3);
 
 	            	}
