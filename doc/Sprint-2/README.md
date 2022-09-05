@@ -3,10 +3,10 @@
 ## Démo + Planification du sprint suivant
 
 ### Ce que nous avons fait durant ce sprint
-Nous avons creer le menu du jeu pour que le joueur puisse rentrer son nom,le joueur peux voir son solde et piocher des cartes.
+Nous avons crée le menu du jeu pour que le joueur puisse rentrer son nom,le joueur peux voir son solde et piocher des cartes.
 Résoudre les problemes git
 ### Ce que nous allons faire durant le prochain sprint
-    le joueur va pouvoir jouer contre l'ordinateur(chacun pioche et notion de victoire)
+    le joueur va pouvoir joué contre l'ordinateur(chacun pioche et notion de victoire)
     le solde de départ va etre attribué aleatoirement
     le solde va évoluer en cours de partie 
 ## Rétrospective
@@ -23,7 +23,7 @@ oui notre demo etait operationnel malgré un bug
 ## +
     Nous avons etait efficace,
     Notre jeu a prit de la valeur
-    Le travail d'equipe ce passe bien
+    Le travail d'equipe se passe bien
     Bonne communication
 ## - 
     maitrise de git

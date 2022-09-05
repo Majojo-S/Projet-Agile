@@ -4,10 +4,10 @@
 
 ### Ce que nous avons fait durant ce sprint
 On peut lancer la roulette.
-Le solde est évoluatif à la fin d'une partie et on peut changer la mise après une partie.
+Le solde est évolutif à la fin d'une partie et on peut changer la mise après une partie.
 
 ### Ce que nous allons faire durant le prochain sprint
-Ajouter de l'ascii art pour rendre les jeux plus vivant.
+Ajouter de l'ascii art pour rendre les jeux plus vivant. (carte et roulette)
 
 ## Rétrospective
 
@@ -22,7 +22,7 @@ notre demo était operationnel malgré que l'ordinateur fonctionnait au ralenti.
 ### PDCA
 ## +
     Nous avons etait efficace,
-    Notre jeu est partiquement fini,
+    Notre jeu est partiellement fini,
     Maitrise de git
 ## - 
     Toucher à une classe où quelqu'un est entrain de travailler dessus
