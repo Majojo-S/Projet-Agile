@@ -1,5 +1,5 @@
 package Menu.Game.BlackJack;
 
-enum Color {
+public enum Color {
 	TREFLE, PIQUE, COEUR, CARREAU;
 }

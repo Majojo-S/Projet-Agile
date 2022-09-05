@@ -14,7 +14,7 @@ public class Player implements Comparable<Player>{
 	int echelon;
 	List<Card> hand = new ArrayList<Card>();
 	List<Card> croupier = new ArrayList<Card>();
-	
+
 	public Player(String name){
 		this.name = name;
 	}
@@ -61,7 +61,7 @@ public class Player implements Comparable<Player>{
 	public void setScore(int score) {
 		this.bourse = score;
 	}
-	
+
 	public int totalOfHand() {
 		int calcul = 0;
 		for(int idx = 0; idx < this.hand.size(); idx ++) {
@@ -69,7 +69,7 @@ public class Player implements Comparable<Player>{
 		}
 		return calcul;
 	}
-	
+
 	public int totalOfCroupier() {
 		int calcul = 0;
 		for(int idx = 0; idx < this.croupier.size(); idx ++) {
@@ -78,11 +78,16 @@ public class Player implements Comparable<Player>{
 		return calcul;
 	}
 
-	//TODO : exception unvalid bet
-	public int bet(Scanner sc){
+	
+	public int bet(Scanner sc) throws UnvalidBet {
 		System.out.println("Entrez votre mise : ");
-		int coins = sc.nextInt();
-		return coins;
+		
+		if (sc.nextInt()>bourse || sc.nextInt()<1) {
+			throw new UnvalidBet();
+		}else {
+			int coins = sc.nextInt();
+			return coins;
+		}
 	}
 
 	@Override
@@ -97,12 +102,28 @@ public class Player implements Comparable<Player>{
 
 	public void setBourse(int bourse) {
 		this.bourse = bourse;
-		
+
 	}
 
 	public void setEchelon(int echelon) {
 		this.echelon = echelon;
 	}
 
-	
+	public List<Card> getHand() {
+		return hand;
+	}
+
+	public void setHand(List<Card> hand) {
+		this.hand = hand;
+	}
+
+	public void bourseLose(int coins) {
+		this.setBourse(this.getBourse() - coins);
+	}
+
+	public void bourseWin(int coins) {
+		this.setBourse(this.getBourse() + coins);
+	}
+
+
 }

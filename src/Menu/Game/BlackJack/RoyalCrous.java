@@ -25,7 +25,16 @@ public class RoyalCrous implements Game {
         while(fin != true) {
         	Packet jeu = new Packet(nb);
         	System.out.println("Début du jeu ! ");
-        	int bet = player.bet(scanner);
+        	int bet = 0;;
+        	boolean correct = false;
+        	while(!correct) {
+				try {
+					bet = player.bet(scanner);
+					correct = true;
+				} catch (UnvalidBet e1) {
+					e1.printStackTrace();
+				}
+			}
         	System.out.println("Vous avez misé : " + bet + " crédits");
         	clear();
         	player.hand.clear();
@@ -158,14 +167,14 @@ public class RoyalCrous implements Game {
 
 	private static void updateBourseWin(Player player, int coins, Players players){
 		System.out.println("Vous avez gagné " + coins + " crédits");
-		player.setBourse(player.getBourse() + coins);
+		player.bourseWin(coins);
 		players.majProfil(player);
 		System.out.println("Il vous reste " + player.getBourse() + "crédits");
 	}
 
 	private static void updateBourseLost(Player player, int coins, Players players){
 		System.out.println("Vous avez perdu " + coins + " crédits");
-		player.setBourse(player.getBourse() - coins);
+		player.bourseLose(coins);
 		players.majProfil(player);
 		System.out.println("Il vous reste " + player.getBourse() + "crédits");
 	}

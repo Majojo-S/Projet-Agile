@@ -12,7 +12,7 @@ public class Card {
 	public static final String ANSI_BLACK_BG = "\033[47m"; //WHITE
     public static final String ANSI_RED_BG = "\u001B[41m";
 	
-	Card(Rank rank, Color color) {
+	public Card(Rank rank, Color color) {
 		this.rank = rank;
 		this.color = color;
 	}

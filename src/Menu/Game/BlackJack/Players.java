@@ -132,9 +132,6 @@ public class Players {
 	}
 	
 	public void updateTxt() {
-		for(Player e:players) {
-			System.out.println(e);
-		  }
 		
 		try (FileWriter fw=new FileWriter(this.f)){
 			StringBuilder sb=new StringBuilder();
@@ -160,6 +157,5 @@ public class Players {
 	
 	
 	
-
 
 }

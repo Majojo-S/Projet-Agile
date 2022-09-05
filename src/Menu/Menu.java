@@ -2,8 +2,10 @@ package Menu;
 
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
@@ -11,6 +13,7 @@ import java.util.Scanner;
 import Menu.Game.BlackJack.Player;
 import Menu.Game.BlackJack.Players;
 import Menu.Game.BlackJack.RoyalCrous;
+import Menu.Game.BlackJack.SecretPlayer;
 import Menu.Game.Roulette.Roulette;
 
 
@@ -20,8 +23,7 @@ import Menu.Game.Roulette.Roulette;
 public class Menu {
 	private static Players players= new Players();
 	private static Player p1;
-
-
+	private static List<String> secretPlayer= new ArrayList<String>();
 
 
 
@@ -158,9 +160,12 @@ public class Menu {
 
 				String nom= userInput.nextLine();
 
-				p1=new Player(100,nom,1);
-
-				init(p1);
+				if(secretPlayer.contains(nom)) {
+					p1 = new SecretPlayer(nom);
+				}else {
+					p1=new Player(100,nom,1);
+					init(p1);
+				}
 				
 				while(!players.addPlayer(p1)) {
 					nom= userInput.nextLine();
