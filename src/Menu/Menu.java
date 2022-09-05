@@ -81,7 +81,7 @@ public class Menu {
 		}
 	}
 
-	private static void LoadingMenu() throws InterruptedException {
+	private static void LoadingMenu() throws InterruptedException, IOException {
 		System.out.println("Loading game...");
 		try {
 			Thread.sleep(2000);
@@ -235,12 +235,12 @@ public class Menu {
 
 
 
-	private static void play( ) throws InterruptedException {
+	private static void play( ) throws InterruptedException, IOException {
 		LoadingMenu();
 		
 	}
 	
-	private static void play(String choix ) throws InterruptedException {
+	private static void play(String choix ) throws InterruptedException, IOException {
 		switch (choix) {
 		case "1":
 			clear();

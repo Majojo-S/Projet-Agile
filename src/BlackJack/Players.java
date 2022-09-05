@@ -119,10 +119,14 @@ public class Players {
 		lecteurAvecBuffer.close();
 	}
 	
-	public void majProfil(Player p,Player p1) {
-		int idx=players.indexOf(p);
-		
-		players.set(idx, p1);
+	public void majProfil(Player player) {
+		int idx =- 1;
+		for(Player p : players) {
+			if(p.name.equals(player.getName())) {
+				idx = players.indexOf(p);
+			}
+		}
+		players.set(idx, player);
 
 		updateTxt();
 	}
@@ -146,7 +150,22 @@ public class Players {
 			System.out.println("Interruption");
 		}
 	}
+
+
+	@Override
+	public String toString() {
+		return "Players [players=" + players +"]";
+	}
 	
+	/*public int searchIdx(String name) {
+		int idx =-1;
+		for(Player p : players) {
+			if(p.name.equals(name)) {
+				idx = players.indexOf(p);
+			}
+		}
+		return idx;
+	}*/
 	
 	
 	
