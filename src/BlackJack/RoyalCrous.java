@@ -25,11 +25,9 @@ public class RoyalCrous {
         int choix = 0;
         boolean fin = false;
         while(fin != true) {
-        	int mise = 0;
         	Packet jeu = new Packet(nb);
         	System.out.println("Début du jeu ! ");
-        	System.out.println(player.bet(scanner));
-			int bet = player.bet(scanner);
+        	int bet = player.bet(scanner);
         	System.out.println("Vous avez misé : " + bet + " crédits");
         	clear();
         	player.hand.clear();
@@ -93,7 +91,6 @@ public class RoyalCrous {
 	            	}
 	        	}
 	        }
-	        break;
         }
 	        
         scanner.close();
