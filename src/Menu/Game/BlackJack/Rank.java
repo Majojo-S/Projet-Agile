@@ -1,4 +1,4 @@
-package BlackJack;
+package Menu.Game.BlackJack;
 
 enum Rank {
 

@@ -7,10 +7,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
-import BlackJack.Player;
-import BlackJack.Players;
-import BlackJack.RoyalCrous;
-import Roulette.Roulette;
+
+import Menu.Game.BlackJack.Player;
+import Menu.Game.BlackJack.Players;
+import Menu.Game.BlackJack.RoyalCrous;
+import Menu.Game.Roulette.Roulette;
 
 
 
@@ -240,14 +241,15 @@ public class Menu {
 		switch (choix) {
 		case "1":
 			clear();
-			RoyalCrous.start(p1, players);
+			RoyalCrous blackJack = new RoyalCrous();
+			blackJack.start(p1, players);
 			players.updateTxt();
 			LoadingMenu();
 			break;
 		case "2":
 			clear();
 			Roulette roulette = new Roulette();
-			roulette.start();
+			roulette.start(p1,players);
 			LoadingMenu();
 			break;
 		default:

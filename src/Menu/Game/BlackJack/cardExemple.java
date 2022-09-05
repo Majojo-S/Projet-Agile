@@ -1,4 +1,4 @@
-package BlackJack;
+package Menu.Game.BlackJack;
 
 import java.util.Random;
 

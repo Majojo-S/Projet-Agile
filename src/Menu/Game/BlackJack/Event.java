@@ -1,4 +1,4 @@
-package BlackJack;
+package Menu.Game.BlackJack;
 
 public class Event {
 	private int timer = 0;

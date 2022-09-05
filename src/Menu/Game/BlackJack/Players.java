@@ -1,4 +1,4 @@
-package BlackJack;
+package Menu.Game.BlackJack;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -132,10 +132,10 @@ public class Players {
 	}
 	
 	public void updateTxt() {
+		for(Player e:players) {
+			System.out.println(e);
+		  }
 		
-		  for(Player e:players) {
-		   System.out.println(e);
-		 }
 		try (FileWriter fw=new FileWriter(this.f)){
 			StringBuilder sb=new StringBuilder();
 			for(Player player:players) {

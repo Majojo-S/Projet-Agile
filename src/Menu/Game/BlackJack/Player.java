@@ -1,9 +1,9 @@
-package BlackJack;
+package Menu.Game.BlackJack;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import BlackJack.Card;
+import Menu.Game.BlackJack.Card;
 
 public class Player implements Comparable<Player>{
 	/**

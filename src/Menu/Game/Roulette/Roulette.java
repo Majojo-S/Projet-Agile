@@ -1,4 +1,4 @@
-package Roulette;
+package Menu.Game.Roulette;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -6,7 +6,11 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Roulette {
+import Menu.Game.Game;
+import Menu.Game.BlackJack.Player;
+import Menu.Game.BlackJack.Players;
+
+public class Roulette implements Game{
 
 	//TODO : mettre 0 --> vert  
 	// 0-36
@@ -68,7 +72,7 @@ public class Roulette {
 		return rslt;
 	}
 
-	public void start() {
+	public void start(Player player , Players players) {
 		System.out.println("\nRoulette");
 		remplir();
 		afficherRoulette();

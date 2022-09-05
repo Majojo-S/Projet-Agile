@@ -1,4 +1,4 @@
-package BlackJack;
+package Menu.Game.BlackJack;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -7,9 +7,11 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
-public class RoyalCrous {
+import Menu.Game.Game;
 
-	public static void start(Player player, Players players) throws InterruptedException, IOException{
+public class RoyalCrous implements Game {
+
+	public void start(Player player, Players players){
 		Scanner scanner = new Scanner(System.in);
         System.out.println("Vous avez " + player.getBourse() + "jetons");
         
@@ -63,7 +65,12 @@ public class RoyalCrous {
 						updateBourseLost(player, bet, players);
 						event.setTimer(event.getTimer()+1);
 	            		choix = 0;
-	            		TimeUnit.SECONDS.sleep(3);
+	            		try {
+							TimeUnit.SECONDS.sleep(3);
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 	            		clear();
 	            	} else {
 	            		System.out.println("1 pour piocher et 2 pour rester");
@@ -82,20 +89,35 @@ public class RoyalCrous {
 						event.setTimer(event.getTimer()+1);						
 						clear();
 	            		choix = 0;
-	            		TimeUnit.SECONDS.sleep(3);
+	            		try {
+							TimeUnit.SECONDS.sleep(3);
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 	            	} else if(player.totalOfHand() > 21 || player.totalOfCroupier() > player.totalOfHand() && player.totalOfCroupier() < 21) {
 	            		handResult(Result.WIN);
 						updateBourseWin(player, bet, players);
 						event.setTimer(event.getTimer()+1);
 						clear();
 	            		choix = 0;
-	            		TimeUnit.SECONDS.sleep(3);
+	            		try {
+							TimeUnit.SECONDS.sleep(3);
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 	            	} else if(player.totalOfCroupier() == player.totalOfHand()) {
 	            		handResult(Result.DRAW);
 	            		event.setTimer(event.getTimer()+1);
 	            		choix = 0;
 	            		clear();
-	            		TimeUnit.SECONDS.sleep(3);
+	            		try {
+							TimeUnit.SECONDS.sleep(3);
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 
 	            	}
 	        	}
