@@ -41,7 +41,7 @@ public class RoyalCrous {
 	    		System.out.println("BLACKJACK ! Vous remportez cette partie !");
 	    		choix = 0;
 	    	}
-	    	System.out.println("1 pour piocher et 2 pour rester, 2 pour quitter");
+	    	System.out.println("1 pour piocher et 2 pour rester, -1 pour quitter");
 	    	choix = scanner.nextInt();
 	        while(choix != 0) {
 	        	if(choix == -1) {

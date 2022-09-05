@@ -1,4 +1,4 @@
-theo 1000
+theo 0
 huukuhk 600
 rgdgrdg 600
 p 600
@@ -7,10 +7,12 @@ fseesf 500
 rrgdgd 400
 htfhfth 400
 fqzfqzf 400
+dzqdqz 400
 lplpmm 300
+efsfesf 300
+dqdzqdq 300
 gyjgyj 200
 jiojoijo 100
 ygjjgyjg 100
 renan 100
 r 100
-dzqdqz 400
