@@ -15,6 +15,16 @@ import Menu.Game.BlackJack.Rank;
 
 public class PlayerTest {
 
+	@Test
+	public void createPlayer() {
+		Player player = new Player(100,"test",1);
+		assertEquals(player.getName(),"test");
+		assertEquals(player.getBourse(), 100);
+		assertEquals(player.getEchelon(), 1);
+	}
+	
+	
+	
 	 @Test
 	 public void handTest() {
 		 Player player = new Player(100,"test",1);
@@ -24,4 +34,5 @@ public class PlayerTest {
 		 player.setHand(list);
 		 assertEquals(player.totalOfHand(), 12);
 	 }
+	 
 }
