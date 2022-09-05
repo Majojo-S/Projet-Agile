@@ -1,10 +1,12 @@
 huukuhk 600
 rgdgrdg 600
-p 600
 testf 600
+test 600
+fgghfhg 600
 thhtfh 500
 fseesf 500
 poikoijoi 500
+p 400
 rrgdgd 400
 htfhfth 400
 fqzfqzf 400
@@ -16,9 +18,12 @@ testttt 400
 lplpmm 300
 efsfesf 300
 dqdzqdq 300
+mmmmmjkjkl 300
+dqsdsq 300
 msdqmld 200
 gyjgyj 200
 ;oi,oi,oi, 200
+erfdsfsf 300
 jiojoijo 100
 ygjjgyjg 100
 renan 100
@@ -26,4 +31,3 @@ r 100
 k,kfo,fos 100
 dfgfgfdgd 100
 theo 0
-mmmmmjkjkl 300
