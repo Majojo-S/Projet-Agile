@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 import Menu.Game.BlackJack.Player;
 import Menu.Game.BlackJack.Players;
@@ -33,7 +34,7 @@ public class Menu {
 
 
 
-	public static void main(String[] args) throws IOException{
+	public static void main(String[] args) throws IOException, InterruptedException{
 		titleMenu();
 		try {
 			Thread.sleep(3000);
@@ -128,14 +129,20 @@ public class Menu {
 		}
 	}
 
-	private static void titleMenu() {
+	private static void titleMenu() throws InterruptedException {
 		
 		System.out.println("Vous etes un jeune bachelier, le jour de votre rentrée vous n'avez pas reçu votre bourse");
+		TimeUnit.SECONDS.sleep(4);
 		System.out.println("Malheuresement cette argent devait servir a soigner votre perroquet");
+		TimeUnit.SECONDS.sleep(3);
 		System.out.println("A cause de ce retard, PIOU PIOU il est mort");
+		TimeUnit.SECONDS.sleep(4);
 		System.out.println("Du coup vous decidez donc de vous venger de cette organisation maléfique");
+		TimeUnit.SECONDS.sleep(3);
 		System.out.println("Votre plan est d'aller au casino avec l'argent du Crous pour acheter un BAZOOKA et détruire les méchants");
+		TimeUnit.SECONDS.sleep(3);
 		System.out.println("L'armurier de los santos vous a dit que le bazooka valait 8000 balles");
+		TimeUnit.SECONDS.sleep(4);
 		
 		System.out.println(Roulette.ANSI_RED_BG+"░░▒▒▒▒▓▓▒▒▒▒▒▒▒▒░░░░▒▒▓▓██▓▓░░▒▒░░░░▒▒░░░░▓▓░░░░▒▒▒▒▓▓▒▒▒▒▒▒░░░░░░▒▒░░▒▒░░▒▒░░▒▒░░░░▒▒  ▒▒▒▒░░░░▒▒▒▒▒▒░░░░    ▒▒▒▒▒▒  ░░▒▒░░▓▓▓▓▒▒▒▒░░▒▒▒▒░░▒▒██▓▓▓▓▒▒░░░░░░░░▓▓▓▓▓▓▓▓▓▓░░  ▒▒▓▓▓▓░░░░\n" + 
 				"▒▒▒▒▓▓▓▓░░░░░░▒▒▒▒▓▓░░  ▓▓▒▒▒▒░░    ▒▒▒▒▒▒▒▒▒▒░░▒▒░░▒▒▓▓░░▒▒░░░░░░░░▒▒  ▒▒▒▒░░░░░░░░▒▒░░░░░░░░░░            ░░  ▓▓▒▒  ░░▒▒░░▒▒▓▓▒▒  ▒▒▒▒░░░░▒▒▒▒▓▓▓▓▓▓▒▒▒▒▒▒▒▒▓▓▓▓██░░  ▒▒▒▒▒▒▒▒  ░░▒▒\n" + 
@@ -186,7 +193,17 @@ public class Menu {
 				"▓▓▓▓▒▒▒▒░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░  ░░░░▒▒░░▒▒▓▓  ▒▒▒▒▒▒░░░░░░▒▒░░▒▒░░░░  ░░                  ░░░░      ▒▒▓▓▒▒  ░░░░░░▒▒▒▒░░▒▒░░▓▓▓▓▓▓▓▓░░▒▒▓▓░░░░  ▒▒▓▓▓▓▓▓░░░░▓▓▒▒▒▒░░▒▒░░░░░░\n" + 
 				"▒▒░░░░▒▒▓▓▒▒░░░░░░▒▒▒▒░░░░▒▒▓▓▒▒▒▒▒▒░░░░░░░░░░░░▒▒▓▓░░░░▒▒▒▒░░░░░░▒▒░░▒▒▓▓░░      ░░              ░░░░  ░░░░  ▒▒▓▓▓▓░░  ░░░░░░▒▒▒▒░░▒▒▓▓▓▓▓▓▒▒░░░░▒▒▒▒░░░░▓▓▓▓▓▓▒▒░░░░  ▒▒▓▓▒▒▒▒░░░░░░\n" + 
 				"░░░░░░▓▓▓▓▓▓▒▒  ▒▒▒▒░░░░░░▒▒▓▓▓▓▓▓▓▓▒▒░░░░░░░░▒▒▒▒░░▒▒▒▒▒▒▓▓░░░░░░▒▒▒▒▓▓░░░░        ░░          ▒▒▒▒░░  ░░░░  ▒▒▒▒▒▒  ░░  ░░░░░░▒▒▒▒  ▓▓▒▒▒▒▒▒░░  ░░▒▒░░▒▒▓▓▓▓░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒  \n" + 
-				"    ░░▒▒▓▓▓▓  ▓▓▒▒░░░░░░▓▓░░▒▒▓▓▓▓██▓▓▒▒░░░░▒▒▒▒▒▒░░  ░░░░░░░░░░░░░░▒▒▒▒░░        ░░  ░░        ░░▒▒▓▓▒▒░░░░░░░░▒▒░░    ░░░░▒▒▒▒▒▒▒▒▒▒    ▒▒▒▒░░░░  ▒▒▒▒▒▒▒▒░░░░▒▒░░░░░░░░▓▓▒▒░░▓▓▒▒▒▒\n" + 
+				"    ░░▒▒▓▓▓▓  ▓▓▒▒░░░░░░▓▓░░▒▒▓▓▓▓██▓▓▒▒░░░░▒▒▒▒                     __,-~~/~    `---.\n" + 
+				"                   _/_,---(      ,    )\n" + 
+				"               __ /        <    /   )  \\___\n" + 
+				"- ------===;;;'====------------------===;;;===----- -  -\n" + 
+				"                  \\/  ~\"~\"~\"~\"~\"~\\~\"~)~\"/\n" + 
+				"                  (_ (   \\  (     >    \\)\n" + 
+				"                   \\_( _ <         >_>'\n" + 
+				"                      ~ `-i' ::>|--\"\n" + 
+				"                          I;|.|.|\n" + 
+				"                         <|i::|i|`.\n" + 
+				"                        (` ^'\"`-' \")▒▒░░  ░░░░░░░░░░░░░░▒▒▒▒░░        ░░  ░░        ░░▒▒▓▓▒▒░░░░░░░░▒▒░░    ░░░░▒▒▒▒▒▒▒▒▒▒    ▒▒▒▒░░░░  ▒▒▒▒▒▒▒▒░░░░▒▒░░░░░░░░▓▓▒▒░░▓▓▒▒▒▒\n" + 
 				"▒▒    ░░▒▒░░▒▒▓▓▒▒▓▓░░░░▒▒▒▒▒▒▒▒▓▓▓▓▓▓▒▒░░░░▒▒▒▒░░  ░░  ░░░░░░░░░░▒▒▒▒░░░░  ░░  ░░░░  ▒▒▒▒    ▒▒▒▒░░▒▒▓▓▒▒░░░░░░    ░░░░▒▒▒▒▒▒▓▓▓▓▒▒▒▒░░  ▒▒░░░░░░▒▒  ▒▒▒▒▒▒░░▒▒░░░░░░▓▓▒▒▓▓▒▒▒▒░░░░▓▓\n" + 
 				"▓▓      ░░▒▒▓▓░░▒▒▓▓▓▓▒▒░░░░░░▒▒▒▒▓▓▓▓▒▒▒▒▒▒▓▓░░▒▒░░    ░░░░░░░░▒▒▓▓░░▒▒  ░░  ░░░░░░▒▒▒▒▒▒░░░░  ░░▒▒░░▒▒▓▓░░░░      ░░▒▒▓▓▓▓▓▓▓▓▒▒░░░░▒▒░░░░▒▒▒▒▓▓▒▒▓▓  ▒▒░░░░▒▒▓▓░░▓▓▓▓▓▓▒▒░░▒▒  ░░  \n" + 
 				"▒▒  ░░  ░░▒▒░░  ▒▒▓▓▓▓▓▓▒▒▒▒▒▒░░░░▓▓▓▓██▓▓▓▓░░▒▒▒▒▒▒░░    ░░░░░░░░▒▒░░▒▒░░░░░░  ▒▒▒▒▒▒  ░░░░  ░░░░░░░░░░▓▓▒▒░░  ░░░░▒▒▓▓▒▒██▓▓▒▒░░░░░░░░░░░░▒▒▓▓▓▓██▓▓░░  ▒▒░░▒▒██▓▓▓▓▓▓██░░░░░░  ░░░░\n" + 
