@@ -45,9 +45,9 @@ public class Roulette {
 			input = userInput.nextLine();
 			int entree = Integer.valueOf(input);
 			if(resultatnombre(result, entree)){
-				System.out.println("Vous avez gagné, ,le nombre était : " + result);
+				System.out.println("Vous avez gagné, le nombre était : " + result);
 			}else {
-				System.out.println("Vous avez perdu,le nombre était : " + result);
+				System.out.println("Vous avez perdu, le nombre était : " + result);
 			}
 			break;
 		}
