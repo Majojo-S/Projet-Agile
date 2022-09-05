@@ -10,6 +10,7 @@ import java.util.concurrent.TimeUnit;
 import Menu.Game.Game;
 import Menu.Game.BlackJack.Player;
 import Menu.Game.BlackJack.Players;
+import Menu.Game.BlackJack.UnvalidBet;
 
 public class Roulette implements Game{
 
@@ -75,7 +76,7 @@ public class Roulette implements Game{
 		return rslt;
 	}
 
-	public void start(Player player , Players players) {
+	public void start(Player player , Players players) throws UnvalidBet {
 
 		//Affichage roulette 
 		System.out.println("\nRoulette");
@@ -85,7 +86,18 @@ public class Roulette implements Game{
 
 		//Mise
 		Scanner scanner = new Scanner(System.in);
-		int bet = player.bet(scanner);
+
+
+		int bet = 0;
+		boolean correct = false;
+        	while(!correct) {
+				try {
+					bet = player.bet(scanner);
+					correct = true;
+				} catch (UnvalidBet e1) {
+					System.out.println(e1.getMessage());	
+				}
+			}
 		int result = launch();
 		System.out.println("\n1 choisir un nombre, 2 pour une couleur N ou R");
 		String input = userInput.nextLine();
@@ -252,7 +264,7 @@ public class Roulette implements Game{
 		Player p = new Player("r");
 		Players players = new Players();
 
-		r.start(p, players);
+		//r.start(p, players);
 		
 	}
 }

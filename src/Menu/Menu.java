@@ -14,6 +14,7 @@ import Menu.Game.BlackJack.Player;
 import Menu.Game.BlackJack.Players;
 import Menu.Game.BlackJack.RoyalCrous;
 import Menu.Game.BlackJack.SecretPlayer;
+import Menu.Game.BlackJack.UnvalidBet;
 import Menu.Game.Roulette.Roulette;
 
 
@@ -254,7 +255,12 @@ public class Menu {
 		case "2":
 			clear();
 			Roulette roulette = new Roulette();
-			roulette.start(p1,players);
+				try {
+					roulette.start(p1,players);
+				} catch (UnvalidBet e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			LoadingMenu();
 			break;
 		default:

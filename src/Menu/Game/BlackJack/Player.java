@@ -81,13 +81,13 @@ public class Player implements Comparable<Player>{
 	
 	public int bet(Scanner sc) throws UnvalidBet {
 		System.out.println("Entrez votre mise : ");
-		
-		if (sc.nextInt()>bourse || sc.nextInt()<1) {
-			throw new UnvalidBet();
-		}else {
-			int coins = sc.nextInt();
+		int coins = sc.nextInt();
+		if (coins <= this.bourse && coins > 0) {
 			return coins;
 		}
+		
+		throw new UnvalidBet();
+		
 	}
 
 	@Override
