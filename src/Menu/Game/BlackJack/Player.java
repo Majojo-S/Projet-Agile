@@ -14,7 +14,7 @@ public class Player implements Comparable<Player>{
 	int echelon;
 	List<Card> hand = new ArrayList<Card>();
 	List<Card> croupier = new ArrayList<Card>();
-	
+
 	public Player(String name){
 		this.name = name;
 	}
@@ -61,7 +61,7 @@ public class Player implements Comparable<Player>{
 	public void setScore(int score) {
 		this.bourse = score;
 	}
-	
+
 	public int totalOfHand() {
 		int calcul = 0;
 		for(int idx = 0; idx < this.hand.size(); idx ++) {
@@ -69,7 +69,7 @@ public class Player implements Comparable<Player>{
 		}
 		return calcul;
 	}
-	
+
 	public int totalOfCroupier() {
 		int calcul = 0;
 		for(int idx = 0; idx < this.croupier.size(); idx ++) {
@@ -102,7 +102,7 @@ public class Player implements Comparable<Player>{
 
 	public void setBourse(int bourse) {
 		this.bourse = bourse;
-		
+
 	}
 
 	public void setEchelon(int echelon) {
@@ -117,6 +117,13 @@ public class Player implements Comparable<Player>{
 		this.hand = hand;
 	}
 
-	
-	
+	public void bourseLose(int coins) {
+		this.setBourse(this.getBourse() - coins);
+	}
+
+	public void bourseWin(int coins) {
+		this.setBourse(this.getBourse() + coins);
+	}
+
+
 }

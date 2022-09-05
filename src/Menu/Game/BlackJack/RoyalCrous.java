@@ -167,14 +167,14 @@ public class RoyalCrous implements Game {
 
 	private static void updateBourseWin(Player player, int coins, Players players){
 		System.out.println("Vous avez gagné " + coins + " crédits");
-		player.setBourse(player.getBourse() + coins);
+		player.bourseWin(coins);
 		players.majProfil(player);
 		System.out.println("Il vous reste " + player.getBourse() + "crédits");
 	}
 
 	private static void updateBourseLost(Player player, int coins, Players players){
 		System.out.println("Vous avez perdu " + coins + " crédits");
-		player.setBourse(player.getBourse() - coins);
+		player.bourseLose(coins);
 		players.majProfil(player);
 		System.out.println("Il vous reste " + player.getBourse() + "crédits");
 	}
