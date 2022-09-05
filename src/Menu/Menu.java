@@ -132,7 +132,7 @@ public class Menu {
 	private static void titleMenu() throws InterruptedException {
 		
 		System.out.println("Vous etes un jeune bachelier, le jour de votre rentrée vous n'avez pas reçu votre bourse");
-		TimeUnit.SECONDS.sleep(4);
+		TimeUnit.SECONDS.sleep(3);
 		System.out.println("Malheuresement cette argent devait servir a soigner votre perroquet");
 		TimeUnit.SECONDS.sleep(3);
 		System.out.println("A cause de ce retard, PIOU PIOU il est mort");
