@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 import Menu.Game.BlackJack.Player;
 import Menu.Game.BlackJack.Players;
@@ -33,7 +34,7 @@ public class Menu {
 
 
 
-	public static void main(String[] args) throws IOException{
+	public static void main(String[] args) throws IOException, InterruptedException{
 		titleMenu();
 		try {
 			Thread.sleep(3000);
@@ -85,7 +86,7 @@ public class Menu {
 		}
 	}
 
-	private static void LoadingMenu() throws InterruptedException, IOException {
+	public static void LoadingMenu() throws InterruptedException, IOException {
 		System.out.println("Loading game...");
 		try {
 			Thread.sleep(2000);
@@ -112,11 +113,15 @@ public class Menu {
 					+"╠═╬════════════╣\n"
 					+"┃2┃ Roulette   ┃\n"
 					+"╠═╬════════════╣\n"
-					+"┃2┃ Back       ┃\n"
+					+"┃3┃ Back       ┃\n"
 					+"╚═╧════════════╝\n"
 					+"               \n"
 					+"Faites un choix : ");
+			
 			input = userInput.nextLine();
+			if(Integer.valueOf(input) == 3 ) {
+				playMenu();
+			}
 			play(input);
 			exit=true;
 
@@ -124,14 +129,21 @@ public class Menu {
 		}
 	}
 
-	private static void titleMenu() {
-		System.out.println(" |  __ \\                 | |  / ____|                    \n" + 
-				" | |__) |___  _   _  __ _| | | |     _ __ ___  _   _ ___ \n" + 
-				" |  _  // _ \\| | | |/ _` | | | |    | '__/ _ \\| | | / __|\n" + 
-				" | | \\ \\ (_) | |_| | (_| | | | |____| | | (_) | |_| \\__ \\\n" + 
-				" |_|  \\_\\___/ \\__, |\\__,_|_|  \\_____|_|  \\___/ \\__,_|___/\n" + 
-				"               __/ |                                     \n" + 
-				"              |___/                                   ");
+	private static void titleMenu() throws InterruptedException {
+		
+		System.out.println("Vous etes un jeune bachelier, le jour de votre rentrée vous n'avez pas reçu votre bourse");
+		TimeUnit.SECONDS.sleep(3);
+		System.out.println("Malheuresement cette argent devait servir a soigner votre perroquet");
+		TimeUnit.SECONDS.sleep(3);
+		System.out.println("A cause de ce retard, PIOU PIOU il est mort");
+		TimeUnit.SECONDS.sleep(4);
+		System.out.println("Du coup vous decidez donc de vous venger de cette organisation maléfique");
+		TimeUnit.SECONDS.sleep(3);
+		System.out.println("Votre plan est d'aller au casino avec l'argent du Crous pour acheter un BAZOOKA et détruire les méchants");
+		TimeUnit.SECONDS.sleep(3);
+		System.out.println("L'armurier de los santos vous a dit que le bazooka valait 8000 balles");
+		TimeUnit.SECONDS.sleep(4);
+		
 		System.out.println(Roulette.ANSI_RED_BG+"░░▒▒▒▒▓▓▒▒▒▒▒▒▒▒░░░░▒▒▓▓██▓▓░░▒▒░░░░▒▒░░░░▓▓░░░░▒▒▒▒▓▓▒▒▒▒▒▒░░░░░░▒▒░░▒▒░░▒▒░░▒▒░░░░▒▒  ▒▒▒▒░░░░▒▒▒▒▒▒░░░░    ▒▒▒▒▒▒  ░░▒▒░░▓▓▓▓▒▒▒▒░░▒▒▒▒░░▒▒██▓▓▓▓▒▒░░░░░░░░▓▓▓▓▓▓▓▓▓▓░░  ▒▒▓▓▓▓░░░░\n" + 
 				"▒▒▒▒▓▓▓▓░░░░░░▒▒▒▒▓▓░░  ▓▓▒▒▒▒░░    ▒▒▒▒▒▒▒▒▒▒░░▒▒░░▒▒▓▓░░▒▒░░░░░░░░▒▒  ▒▒▒▒░░░░░░░░▒▒░░░░░░░░░░            ░░  ▓▓▒▒  ░░▒▒░░▒▒▓▓▒▒  ▒▒▒▒░░░░▒▒▒▒▓▓▓▓▓▓▒▒▒▒▒▒▒▒▓▓▓▓██░░  ▒▒▒▒▒▒▒▒  ░░▒▒\n" + 
 				"▒▒▓▓▓▓▒▒░░░░░░░░░░▓▓▓▓▓▓░░░░░░░░    ░░▒▒▒▒▒▒▒▒▒▒░░░░▓▓▓▓▓▓▒▒░░░░░░░░░░░░▒▒▒▒░░░░░░▒▒▒▒▒▒  ▒▒░░░░            ░░░░▒▒▒▒░░▒▒░░▓▓▓▓▓▓  ▒▒▒▒░░░░░░░░▒▒▓▓▓▓██▓▓▒▒▒▒▒▒▒▒░░  ░░▓▓▓▓░░░░▒▒▒▒░░░░\n" + 
@@ -181,7 +193,7 @@ public class Menu {
 				"▓▓▓▓▒▒▒▒░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░  ░░░░▒▒░░▒▒▓▓  ▒▒▒▒▒▒░░░░░░▒▒░░▒▒░░░░  ░░                  ░░░░      ▒▒▓▓▒▒  ░░░░░░▒▒▒▒░░▒▒░░▓▓▓▓▓▓▓▓░░▒▒▓▓░░░░  ▒▒▓▓▓▓▓▓░░░░▓▓▒▒▒▒░░▒▒░░░░░░\n" + 
 				"▒▒░░░░▒▒▓▓▒▒░░░░░░▒▒▒▒░░░░▒▒▓▓▒▒▒▒▒▒░░░░░░░░░░░░▒▒▓▓░░░░▒▒▒▒░░░░░░▒▒░░▒▒▓▓░░      ░░              ░░░░  ░░░░  ▒▒▓▓▓▓░░  ░░░░░░▒▒▒▒░░▒▒▓▓▓▓▓▓▒▒░░░░▒▒▒▒░░░░▓▓▓▓▓▓▒▒░░░░  ▒▒▓▓▒▒▒▒░░░░░░\n" + 
 				"░░░░░░▓▓▓▓▓▓▒▒  ▒▒▒▒░░░░░░▒▒▓▓▓▓▓▓▓▓▒▒░░░░░░░░▒▒▒▒░░▒▒▒▒▒▒▓▓░░░░░░▒▒▒▒▓▓░░░░        ░░          ▒▒▒▒░░  ░░░░  ▒▒▒▒▒▒  ░░  ░░░░░░▒▒▒▒  ▓▓▒▒▒▒▒▒░░  ░░▒▒░░▒▒▓▓▓▓░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒  \n" + 
-				"    ░░▒▒▓▓▓▓  ▓▓▒▒░░░░░░▓▓░░▒▒▓▓▓▓██▓▓▒▒░░░░▒▒▒▒▒▒░░  ░░░░░░░░░░░░░░▒▒▒▒░░        ░░  ░░        ░░▒▒▓▓▒▒░░░░░░░░▒▒░░    ░░░░▒▒▒▒▒▒▒▒▒▒    ▒▒▒▒░░░░  ▒▒▒▒▒▒▒▒░░░░▒▒░░░░░░░░▓▓▒▒░░▓▓▒▒▒▒\n" + 
+				"    ░░▒▒▓▓▓▓  ▓▓▒▒░░░░░░▓▓░░▒▒▓▓▓▓██▓▓▒▒░░░░▒▒▒▒▒▒░░  ░░░░░░░░░░░░░░▒▒▒▒░░        ░░  ░░        ░░▒▒▓▓▒▒░░░░░░░░▒▒░░    ░░░░▒▒▒▒▒▒▒▒▒▒    ▒▒▒▒░░░░  ▒▒▒▒▒▒▒▒░░░░▒▒░░░░░░░░▓▓▒▒░░▓▓▒▒▒▒\n"+
 				"▒▒    ░░▒▒░░▒▒▓▓▒▒▓▓░░░░▒▒▒▒▒▒▒▒▓▓▓▓▓▓▒▒░░░░▒▒▒▒░░  ░░  ░░░░░░░░░░▒▒▒▒░░░░  ░░  ░░░░  ▒▒▒▒    ▒▒▒▒░░▒▒▓▓▒▒░░░░░░    ░░░░▒▒▒▒▒▒▓▓▓▓▒▒▒▒░░  ▒▒░░░░░░▒▒  ▒▒▒▒▒▒░░▒▒░░░░░░▓▓▒▒▓▓▒▒▒▒░░░░▓▓\n" + 
 				"▓▓      ░░▒▒▓▓░░▒▒▓▓▓▓▒▒░░░░░░▒▒▒▒▓▓▓▓▒▒▒▒▒▒▓▓░░▒▒░░    ░░░░░░░░▒▒▓▓░░▒▒  ░░  ░░░░░░▒▒▒▒▒▒░░░░  ░░▒▒░░▒▒▓▓░░░░      ░░▒▒▓▓▓▓▓▓▓▓▒▒░░░░▒▒░░░░▒▒▒▒▓▓▒▒▓▓  ▒▒░░░░▒▒▓▓░░▓▓▓▓▓▓▒▒░░▒▒  ░░  \n" + 
 				"▒▒  ░░  ░░▒▒░░  ▒▒▓▓▓▓▓▓▒▒▒▒▒▒░░░░▓▓▓▓██▓▓▓▓░░▒▒▒▒▒▒░░    ░░░░░░░░▒▒░░▒▒░░░░░░  ▒▒▒▒▒▒  ░░░░  ░░░░░░░░░░▓▓▒▒░░  ░░░░▒▒▓▓▒▒██▓▓▒▒░░░░░░░░░░░░▒▒▓▓▓▓██▓▓░░  ▒▒░░▒▒██▓▓▓▓▓▓██░░░░░░  ░░░░\n" + 
@@ -194,6 +206,7 @@ public class Menu {
 				"░░▒▒░░░░░░  ▓▓▓▓▒▒░░░░░░░░░░▓▓▓▓░░▒▒░░▓▓▓▓▓▓▒▒▒▒▒▒░░░░░░▒▒░░▒▒▓▓▓▓░░░░▒▒░░░░░░░░░░▒▒▒▒░░░░░░  ░░▒▒░░▓▓  ░░▒▒▓▓▓▓░░░░▒▒░░▓▓▓▓▓▓██▓▓▒▒▒▒░░░░  ░░▒▒▒▒▒▒▒▒░░░░░░▓▓▒▒▒▒░░  ▓▓▒▒░░░░  ░░  ░░\n" + 
 				"░░  ▒▒░░░░  ▒▒▒▒▓▓░░░░░░░░▓▓▓▓░░░░░░░░▓▓▒▒▓▓▓▓░░░░░░▒▒░░░░░░░░░░▒▒▒▒░░░░    ░░▒▒▒▒▒▒▒▒░░░░░░░░░░▒▒░░▒▒▒▒░░▓▓▒▒▓▓░░░░░░▓▓▓▓▓▓██▓▓░░▒▒░░░░  ░░  ░░░░░░▒▒▒▒  ░░░░▒▒      ░░▒▒▓▓      ░░  \n" + 
 				""+Roulette.ANSI_RESET);
+		System.out.println();
 	}
 
 	private static void playMenu() throws IOException, InterruptedException{
@@ -232,6 +245,7 @@ public class Menu {
 				
 				if(secretPlayer.contains(nom)) {
 					p1 = new SecretPlayer(nom);
+					System.out.println("\nLe crous vous a attribué l'échelon exceptionnel ! Votre échelon est : " + p1.getEchelon() + " \nVotre bourse s'élève à " + p1.getBourse());  
 				}else {
 					p1=new Player(100,nom,1);
 					init(p1);
@@ -258,8 +272,7 @@ public class Menu {
 					else { System.out.println("mais je ne t'ai jamais vu ici "+nomLoad+"  !");
 					try {
 						Thread.sleep(3000);
-						exit = true;
-						break;
+						playMenu();
 					} catch (Exception e) {
 						}
 					}
@@ -384,7 +397,14 @@ public class Menu {
 
 	private static void initSecretPlayer(){
 		List<String> list = new ArrayList<String>();
-		list.add("test");
+		list.add("Titouan");
+		list.add("Law");
+		list.add("Jessy");
+		list.add("Mounir");
+		list.add("Théo");
+		list.add("Hocine");
+		list.add("Marine");
+		list.add("Renan");
 		secretPlayer = list;
 	}
 

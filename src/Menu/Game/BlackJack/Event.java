@@ -84,6 +84,7 @@ public class Event {
 	
 	
 	public RandomTypeEvent getRandEvent() {
+		
 		Random rand = new Random();
 		if(rand.nextInt(10) == 1) {
 			return RandomTypeEvent.PH;
@@ -136,7 +137,12 @@ public class Event {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				Menu.main(args);
+				try {
+					Menu.main(args);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
