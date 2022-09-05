@@ -25,8 +25,10 @@ public class RoyalCrous {
         int choix = 0;
         boolean fin = false;
         while(fin != true) {
+        	int mise = 0;
         	Packet jeu = new Packet(nb);
         	System.out.println("Début du jeu ! ");
+        	mise = player.bet(scanner);
         	System.out.println(player.bet(scanner));
         	clear();
         	player.hand.clear();
@@ -40,13 +42,13 @@ public class RoyalCrous {
 	    		System.out.println("BLACKJACK ! Vous remportez cette partie !");
 	    		choix = 0;
 	    	}
-	    	System.out.println("1 pour piocher et 2 pour rester");
+	    	System.out.println("1 pour piocher et 2 pour rester, 2 pour quitter");
 	    	choix = scanner.nextInt();
 	        while(choix != 0) {
-	        	if(choix == 0) {
-	        		handResult(Result.LOST);
-	        		choix = 0;
+	        	if(choix == -1) {
 	        		fin = true;
+	        		choix = 0;
+	        		break;
 	        	} else if(choix == 1 && player.totalOfHand() < 21){
 	        		player.hand.add(jeu.PickCard());
 	            	System.out.println("Votre main est : " + player.hand + "total : " + player.totalOfHand());
@@ -79,6 +81,7 @@ public class RoyalCrous {
 	            	}
 	        	}
 	        }
+	        break;
         }
 	        
         scanner.close();
