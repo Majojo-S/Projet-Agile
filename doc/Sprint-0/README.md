@@ -6,14 +6,14 @@
 ### Ce que nous avons fait durant ce sprint
 Reflexion sur le jeu (nom,regles,slogan,fonctionnement)
 Nous avons créer nos USER STORY environ 20 pour un poid total de 40 
-nos USER STORY ont une difficulter entre 1 et 8.
+nos USER STORY ont une difficulté entre 1 et 8.
 
 ### Ce que nous allons faire durant le prochain sprint
     refaire nous USER STORY car elle ne sont pas bonne.
 ## Rétrospective
 
 ### Sur quoi avons nous butté ?
-Lister ici tout ce qui était un peut moins bien que parfait.
+Lister ici tout ce qui était un peu moins bien que parfait.
 * Avez-vous terminé tout ce que vous vous étiez engagé à faire ?
     oui nous etions dans les temps
 * Nos difficultés:
