@@ -25,7 +25,16 @@ public class RoyalCrous implements Game {
         while(fin != true) {
         	Packet jeu = new Packet(nb);
         	System.out.println("Début du jeu ! ");
-        	int bet = player.bet(scanner);
+        	int bet = 0;;
+        	boolean correct = false;
+        	while(!correct) {
+				try {
+					bet = player.bet(scanner);
+					correct = true;
+				} catch (UnvalidBet e1) {
+					e1.printStackTrace();
+				}
+			}
         	System.out.println("Vous avez misé : " + bet + " crédits");
         	clear();
         	player.hand.clear();

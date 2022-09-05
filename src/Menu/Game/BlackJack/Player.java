@@ -78,11 +78,16 @@ public class Player implements Comparable<Player>{
 		return calcul;
 	}
 
-	//TODO : exception unvalid bet
-	public int bet(Scanner sc){
+	
+	public int bet(Scanner sc) throws UnvalidBet {
 		System.out.println("Entrez votre mise : ");
-		int coins = sc.nextInt();
-		return coins;
+		
+		if (sc.nextInt()>bourse || sc.nextInt()<1) {
+			throw new UnvalidBet();
+		}else {
+			int coins = sc.nextInt();
+			return coins;
+		}
 	}
 
 	@Override
