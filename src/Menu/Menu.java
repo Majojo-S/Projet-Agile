@@ -255,6 +255,7 @@ public class Menu {
 				
 				if(secretPlayer.contains(nom)) {
 					p1 = new SecretPlayer(nom);
+					System.out.println("\nLe crous vous a attribué l'échelon exceptionnel ! Votre échelon est : " + p1.getEchelon() + " \nVotre bourse s'élève à " + p1.getBourse());  
 				}else {
 					p1=new Player(100,nom,1);
 					init(p1);
@@ -281,8 +282,7 @@ public class Menu {
 					else { System.out.println("mais je ne t'ai jamais vu ici "+nomLoad+"  !");
 					try {
 						Thread.sleep(3000);
-						exit = true;
-						break;
+						playMenu();
 					} catch (Exception e) {
 						}
 					}
