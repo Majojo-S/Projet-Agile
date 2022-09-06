@@ -25,7 +25,10 @@ public class Roulette implements Game{
 	//public static final String ANSI_BLACK_BG = "\u001B[40m";
 	public static final String ANSI_BLACK_BG = "\033[47m"; // WHITE (pour black)
 	public static final String ANSI_RED_BG = "\u001B[41m";
+	public static final String ANSI_RED = "\u001B[31m";
 	public static final String ANSI_GREEN_BG = "\033[42m";
+	public static final String ANSI_GREEN = "\u001B[32m";
+	public static final String ANSI_BLUE_BACKGROUND = "\u001B[44m";
 
 	private static Scanner userInput = new Scanner(System.in);
 
@@ -80,10 +83,13 @@ public class Roulette implements Game{
 	public void start(Player player , Players players) throws UnvalidBet {
 
 		//Affichage roulette 
-		System.out.println("\nRoulette");
+		System.out.println(
+		 "╔━╤━━━━━━━━━━━━━━━━━━╗\n"
+		+"┃ Roulette           ┃\n"
+		+"╚═╧━━━━━━━━━━━━━━━━━═╝\n");
 		remplir();
 		afficherRoulette();
-		System.out.println("\nVous avez " + player.getBourse() + "jetons");
+		System.out.println("\nTu as " + player.getBourse() + "jetons");
 
 		//Mise
 		Scanner scanner = new Scanner(System.in);
@@ -101,22 +107,34 @@ public class Roulette implements Game{
 			}
 			Event event = new Event(0);
 		int result = launch();
-		System.out.println("\n1 choisir un nombre, 2 pour une couleur N ou R");
+		System.out.println(
+			 "╔━╤━━━━━━━━═══━━━━╗\n"
+			+"┃1┃ NOMBRE        ┃\n"
+			+"╠═╬═══════════════╣\n"
+			+"┃2┃ COULEUR       ┃\n"
+			+"╚═╧═══════════════╝\n"
+			+"               \n"
+			+"Faites un choix : ");
 		String input = userInput.nextLine();
 		switch (input) {
 		case "1": {
-			System.out.println("\nChoisis un nombre\n");
+			System.out.println(
+			 "╔━╤━━━━━━━━━━━══━━━══━━━══━━━══━═══━━━━╗\n"
+			+"┃  CHOISIS UN NOMBRE ENTRE 1 et 36     ┃\n"
+			+"╚═╧════════════════════════════════════╝\n"
+			+"               \n"
+			+"Faites un choix : ");
 			input = userInput.nextLine();
 			int entree = Integer.valueOf(input);
 			if(resultatnombre(result, entree)){
 				afficherResultatNb(result);
-				System.out.println("\nVous avez gagné, le nombre était : " + roulette.get(entree));
+				System.out.println(ANSI_GREEN + "\nVous avez gagné" + ANSI_RESET + "\nLe nombre était : " + roulette.get(entree));
 				this.winByNumber(player, bet);
 				event.WinTheGame(player.getBourse());
 
 			}else {
 				afficherResultatNb(result);
-				System.out.println("\nVous avez perdu, le nombre était : " + result);
+				System.out.println(ANSI_RED + "\nVous avez perdu" + ANSI_RESET + "\nle nombre était : " + result);
 				this.lost(player, bet);
 				event.LostTheGame(player.getBourse());
 			}
@@ -124,6 +142,14 @@ public class Roulette implements Game{
 		}
 		case "2": {
 			System.out.println("\nChoisis une couleur\n");
+			System.out.println(
+			 "╔━╤━━━━━━━━═══━━━━╗\n"
+			+"┃N┃ NOIRE         ┃\n"
+			+"╠═╬═══════════════╣\n"
+			+"┃R┃ ROUGE         ┃\n"
+			+"╚═╧═══════════════╝\n"
+			+"               \n"
+			+"Faites un choix : ");
 			input = userInput.nextLine();
 			String entree = input;
 			if(resultatcouleur(roulette.get(result), entree)){
@@ -134,7 +160,7 @@ public class Roulette implements Game{
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				System.out.println("\nVous avez gagné, la couleur était : " + roulette.get(result));
+				System.out.println(ANSI_GREEN + "\nVous avez gagné" + ANSI_RESET + "\nLa couleur était : " + roulette.get(result));
 				this.winByColor(player, bet);
 				event.WinTheGame(player.getBourse());
 			}else {
@@ -145,7 +171,7 @@ public class Roulette implements Game{
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				System.out.println("\nVous avez perdu, la couleur était : " + roulette.get(result));
+				System.out.println(ANSI_RED + "\nVous avez perdu" + ANSI_RESET + "\nLa couleur était : " + roulette.get(result));
 				this.lost(player, bet);
 				event.LostTheGame(player.getBourse());
 			}
@@ -171,17 +197,17 @@ public class Roulette implements Game{
 
 	private void winByNumber(Player player, int bet){
 		player.setBourse(player.getBourse() + bet * 36);
-		System.out.println("`nVotre solde : " + player.getBourse());
+		System.out.println("\nTon solde : " + player.getBourse());
 	}
 
 	private void winByColor(Player player, int bet){
 		player.setBourse(player.getBourse() + bet);
-		System.out.println("`nVotre solde : " + player.getBourse());
+		System.out.println("\nTon solde : " + player.getBourse());
 	}
 
 	private void lost(Player player , int bet){
 		player.setBourse(player.getBourse() - bet);
-		System.out.println("`nVotre solde : " + player.getBourse());
+		System.out.println("\nTon solde : " + player.getBourse());
 	}
 
 	private void afficherResultatCouleur(int result){

@@ -27,6 +27,13 @@ public class Menu {
 	private static Player p1;
 	private static List<String> secretPlayer= new ArrayList<String>();
 
+	//Couleurs
+	public static final String ANSI_RESET = "\u001B[0m";
+	//public static final String ANSI_BLACK_BG = "\u001B[40m";
+	public static final String ANSI_BLACK_BG = "\033[47m"; // WHITE (pour black)
+	public static final String ANSI_RED_BG = "\u001B[41m";
+	public static final String ANSI_GREEN_BG = "\033[42m";
+
 
 
 	private static Scanner userInput = new Scanner(System.in);
@@ -131,18 +138,41 @@ public class Menu {
 
 	private static void titleMenu() throws InterruptedException {
 		
-		System.out.println("Vous etes un jeune bachelier, le jour de votre rentrée vous n'avez pas reçu votre bourse");
+		System.out.println(
+		 "╔━╤━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╗\n"
+		+"┃ Tu es un jeune bachelier, le jour de ta rentrée tu n'as pas reçu ta bourse     								   			    ┃\n"
+		+"╚═╧═══━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━═╝\n");
 		TimeUnit.SECONDS.sleep(3);
-		System.out.println("Malheuresement cette argent devait servir a soigner votre perroquet");
+
+		System.out.println(
+		 "╔━╤━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╗\n"
+		+"┃ Malheuresement cette argent devait servir a soigner ton perroquet              								   		        ┃\n"
+		+"╚═╧═══━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━═╝\n");
 		TimeUnit.SECONDS.sleep(3);
-		System.out.println("A cause de ce retard, PIOU PIOU il est mort");
+
+		System.out.println(
+		 "╔━╤━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╗\n"
+		+"┃ A cause de ce retard, PIOU-PIOU est mort                                      								   			    ┃\n"
+		+"╚═╧═══━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━═╝\n");
+		TimeUnit.SECONDS.sleep(3);
+
+		System.out.println(
+		 "╔━╤━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╗\n"
+		+"┃ Tu n'as qu'une idée en tête, te venger de cette organisation maléfique       											    ┃\n"
+		+"╚═╧═══━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━═╝\n");
+		TimeUnit.SECONDS.sleep(3);
+
+		System.out.println(
+		 "╔━╤━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╗\n"
+		+"┃ Ton plan est d'aller au casino avec l'argent du Crous (reçu en retard) pour acheter un BAZOOKA et détruire les méchants     ┃\n"
+		+"╚═╧═══━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━═╝\n");
+		TimeUnit.SECONDS.sleep(3);
+
+		System.out.println(
+		 "╔━╤━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╗\n"
+		+"┃ L'armurier de Los Santos t'a dit que le BAZZOKA valait 8000 jetons !                                                        ┃\n"
+		+"╚═╧═══━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━═╝\n");
 		TimeUnit.SECONDS.sleep(5);
-		System.out.println("Du coup vous decidez donc de vous venger de cette organisation maléfique");
-		TimeUnit.SECONDS.sleep(3);
-		System.out.println("Votre plan est d'aller au casino avec l'argent du Crous pour acheter un BAZOOKA et détruire les méchants");
-		TimeUnit.SECONDS.sleep(3);
-		System.out.println("L'armurier de los santos vous a dit que le bazooka valait 8000 balles");
-		TimeUnit.SECONDS.sleep(6);
 		
 		System.out.println(Roulette.ANSI_RED_BG+"░░▒▒▒▒▓▓▒▒▒▒▒▒▒▒░░░░▒▒▓▓██▓▓░░▒▒░░░░▒▒░░░░▓▓░░░░▒▒▒▒▓▓▒▒▒▒▒▒░░░░░░▒▒░░▒▒░░▒▒░░▒▒░░░░▒▒  ▒▒▒▒░░░░▒▒▒▒▒▒░░░░    ▒▒▒▒▒▒  ░░▒▒░░▓▓▓▓▒▒▒▒░░▒▒▒▒░░▒▒██▓▓▓▓▒▒░░░░░░░░▓▓▓▓▓▓▓▓▓▓░░  ▒▒▓▓▓▓░░░░\n" + 
 				"▒▒▒▒▓▓▓▓░░░░░░▒▒▒▒▓▓░░  ▓▓▒▒▒▒░░    ▒▒▒▒▒▒▒▒▒▒░░▒▒░░▒▒▓▓░░▒▒░░░░░░░░▒▒  ▒▒▒▒░░░░░░░░▒▒░░░░░░░░░░            ░░  ▓▓▒▒  ░░▒▒░░▒▒▓▓▒▒  ▒▒▒▒░░░░▒▒▒▒▓▓▓▓▓▓▒▒▒▒▒▒▒▒▓▓▓▓██░░  ▒▒▒▒▒▒▒▒  ░░▒▒\n" + 
@@ -233,19 +263,34 @@ public class Menu {
 			case "1":
 
 				
-				System.err.println("Bienvenue dans Royal Crous \n"
-						+ "Quelle est ton prénom ?  ");
+				//System.out.println("Bienvenue dans Royal Crous \n"+ "Quelle est ton prénom ?  ");
+
+				System.out.println(
+				 "╔━╤━━━━━━━━━━━━━━━━━━━━━━━━━━━╗\n"
+				+"┃ Bienvenue dans Royal Crous  ┃\n"
+				+"╚═╧═══━━━━━━━━━━━━━━━━━━━━━━━═╝\n");
+
+				System.out.println("\n");
+
+				System.out.println( 
+				 "╔━╤━━━━━━━━━━━━━━━━━━━━━━━━━━━╗\n"
+				+"┃ Quel est ton prénom ?       ┃\n"
+				+"╚═╧═══━━━━━━━━━━━━━━━━━━━━━━━═╝\n");
 
 				String nom= userInput.nextLine();
 
 				while(players.existingName(nom)) {
-					System.out.println("Votre nom est déjà pris veuillez en choisir un autre.");
+					System.out.println(ANSI_RED_BG + "Ton prénom est déjà pris, choisis en un autre !" + ANSI_RESET);
 					nom= userInput.nextLine();
 				}
 				
 				if(secretPlayer.contains(nom)) {
 					p1 = new SecretPlayer(nom);
-					System.out.println("\nLe crous vous a attribué l'échelon exceptionnel ! Votre échelon est : " + p1.getEchelon() + " \nVotre bourse s'élève à " + p1.getBourse());  
+					System.out.println(
+					 "╔━╤━━━━━━━━━━━━━━━━━━━━━━━━━━━╗\n"
+					+"┃ JackPot                     ┃\n"
+					+"╚═╧═══━━━━━━━━━━━━━━━━━━━━━━━═╝\n");
+					System.out.println("\nLe crous t'a attribué l'échelon exceptionnel ! Votre échelon est : " + p1.getEchelon() + " \nTa bourse s'élève à " + p1.getBourse());  
 				}else {
 					p1=new Player(100,nom,1);
 					init(p1);
@@ -392,7 +437,7 @@ public class Menu {
 		p1.setEchelon(echelon);
 		p1.setBourse(bourse);
 		
-		System.out.println("\nLe crous vous a attribué l'échelon " + echelon + " \nVotre bourse s'élève à " + bourse);  
+		System.out.println("\nLe crous t'a attribué l'échelon " + echelon + " \nTa bourse s'élève à " + bourse);  
 	}
 
 	private static void initSecretPlayer(){

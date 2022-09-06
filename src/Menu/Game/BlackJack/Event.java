@@ -51,33 +51,34 @@ public class Event {
 		int max = 300;
 		Random rand = new Random();
 		System.out.println("C'est l'heure de l'évenement mystère !! \n");
+		TimeUnit.SECONDS.sleep(3);
 		if(rte.equals(RandomTypeEvent.PH)) {
 			p.setBourse(p.getBourse() + rand.nextInt(max)+min);
-			System.out.println (green +" Vous recevez un virement de vos parents !" + (rand.nextInt(max)+min) + "de crédits ps: remerciez les quand même \n" + ANSI_RESET);
+			System.out.println (green +" Oh , un virement de tes parents !" + (rand.nextInt(max)+min) + " crédits PS : N'oublie pas de les remercier \n" + ANSI_RESET);
 		} else if(rte.equals(RandomTypeEvent.WORK)) {
-			System.out.println( green+"Pour votre bon service, le CROUS vous octroie un salaire pour le travail réalisé ! + 150 crédits \n"+ANSI_RESET);
+			System.out.println( green+"Pour ton bon service, le CROUS t'octroie un salaire pour le travail réalisé ! + 150 crédits \n"+ANSI_RESET);
 		} else if(rte.equals(RandomTypeEvent.SUP)) {
 			p.setBourse(p.getBourse() + rand.nextInt(max)+min);
-			System.out.println(green+"C'est votre jour de chance !!! Le CROUS vous à selectionez pour vous attribuez un supplément de bourse !! + " + (rand.nextInt(max)+min) + "de solde pour vous ! \n"+ANSI_RESET);
+			System.out.println(green+"C'est ton jour de chance !!! Le CROUS t'as selectionez ! Tu gagnes un supplément de bourse !! + " + (rand.nextInt(max)+min) + " de solde rien que pour toi ! \n"+ANSI_RESET);
 		} else if(rte.equals(RandomTypeEvent.LUNCH)) {
 			p.setBourse(p.getBourse() - 50);
-			System.out.println(red+"Les repas du CROUS vous ont était facturé... -50 crédits \n"+ANSI_RESET);
+			System.out.println(red+"Les repas du CROUS t'ont été facturé... -50 crédits \n"+ANSI_RESET);
 		} else if(rte.equals(RandomTypeEvent.ECHELON)) {
 			p.setEchelon(rand.nextInt(6)+1);
-			System.out.println(blue+"Allez vous avoir de la chance ou non ? allez vous prendre un echelon ou plutot en perdre, ah ah t'elle est la question \n"+ANSI_RESET);
+			System.out.println(blue+"Vas-tu avoir de la chance ou non ? Vas-tu prendre un echelon ou plûtot en perdre, ah ah telle est la question ...\n"+ANSI_RESET);
 			TimeUnit.SECONDS.sleep(3);
-			System.out.println("Vous êtes desormais echelon" + p.getEchelon() + "\n");
+			System.out.println("Tu es desormais echelon " + p.getEchelon() + "\n");
 		} else if(rte.equals(RandomTypeEvent.BAR)) {
 			p.setBourse(p.getBourse() - 75);
-			System.out.println(red+"Aie grosse soirée hier hein ? Consommez avec modération... - 75 crédits pour vous \n"+ANSI_RESET);
+			System.out.println(red+"Aie grosse soirée hier hein ? Consommes avec modération au moins... - 75 crédits pour toi, mais ça en valait la peine \n"+ANSI_RESET);
 		} else if(rte.equals(RandomTypeEvent.AMENDE)) {
 			p.setBourse(p.getBourse() - 50);
-			System.out.println(red+"OOF, la grosse amende dans les dents, attention la prochaine fois... - 50 crédits \n"+ANSI_RESET);
+			System.out.println(red+"OOF, la grosse amende dans les dents, le stationnement en plein centre ville est payant je te rappelle... - 50 crédits \n"+ANSI_RESET);
 		} else if(rte.equals(RandomTypeEvent.ABSENT)) {
 			p.setBourse(p.getBourse() - 150);
-			System.out.println(red+"Le CROUS n'est pas content la, vous avez était trop absent en cour récemment ils vous enlèvent donc 150 crédits (plutôt que vous enlevez votre bourse) \n"+ANSI_RESET);
+			System.out.println(red+"Le CROUS n'est pas content la, tu as était trop absent en cours récemment. Ils te retires donc 150 crédits (fais attention à ne pas perdre la bourse) \n"+ANSI_RESET);
 		} else {
-			System.out.println(blue+"Bah non ya rien"+ANSI_RESET);
+			System.out.println(blue+"Bah non ya rien pour cette fois !"+ANSI_RESET);
 		}
 	}
 	
@@ -110,7 +111,7 @@ public class Event {
 
 	public boolean WinTheGame(int bourse){
 		if(bourse >= 8000){
-			System.out.println("\nVous avez atteint les 8000 crédits , le Crous a explosé !");
+			System.out.println(green + "\nTu as atteint les 8000 crédits , la vengeance a sonné !" + ANSI_RESET);
 
 			//TODO : EXPLOSION
 
@@ -129,7 +130,7 @@ public class Event {
 	public boolean LostTheGame(int bourse){
 		String [] args = null;
 		if(bourse <= 0){
-			System.out.println("\nLe Crous vous a dépouillé , vous n'avez plus de crédits !");
+			System.out.println(red + "\nLe Crous t'a dépouillé , tu n'as plus de crédits ! " + ANSI_RESET);
 			try {
 				try {
 					TimeUnit.SECONDS.sleep(5);
