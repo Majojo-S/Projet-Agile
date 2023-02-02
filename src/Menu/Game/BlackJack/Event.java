@@ -110,7 +110,7 @@ public class Event {
 	}
 
 	public boolean WinTheGame(int bourse){
-		if(bourse >= 8000){
+		if(bourse >= 2000){
 			System.out.println(green + "\nTu as atteint les 8000 crédits , la vengeance a sonné !" + ANSI_RESET);
 
 			//TODO : EXPLOSION
